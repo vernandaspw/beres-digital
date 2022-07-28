@@ -1,5 +1,5 @@
 <div>
-    <nav style="{{ env('bgColor200') }}" class="navbar shadow-sm navbar-fixed navbar-expand-lg navbar-dark">
+    <nav style="{{ env('bgColor200') }}" class="navbar shadow-sm fixed-top navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}"><b>Beras Digital</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -48,7 +48,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Perusahaan
+                            Mengenai kami
                         </a>
                         <ul class="dropdown-menu border-0 shadow-sm" style="{{ env('bgColor100') }}">
                             <li><a class="dropdown-item " href="#">Tentang</a></li>
