@@ -44,7 +44,7 @@
                             <b>Tentang beres digital</b>
                         </div>
                         <div class="">
-                            <p class="" style="text-align: justify">
+                            <p class="" style="">
                                 Kami hadir sebagai solusi untuk membantu masyarakat, pelaku bisnis UMKM dan organisasi
                                 untuk meningkatkan digitalisasi, memperluas jangkauan, menyediakan produk d migital,
                                 jasa buat website, buat aplikasi, buat desain, hingga memproduksi berbagai gambar dan
