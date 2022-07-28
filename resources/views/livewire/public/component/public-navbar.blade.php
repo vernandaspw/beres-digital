@@ -53,7 +53,7 @@
                         <ul class="dropdown-menu border-0 shadow-sm" style="{{ env('bgColor100') }}">
                             <li><a class="dropdown-item " href="#">Tentang</a></li>
                             <li><a class="dropdown-item " href="#">Kontak</a></li>
-                           
+
                         </ul>
                     </li>
                 </ul>
@@ -79,4 +79,6 @@
     .hoverdaftar:hover {
         border: white;
     }
+
+    
 </style>
