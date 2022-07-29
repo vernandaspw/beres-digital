@@ -57,15 +57,15 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
+                <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item me-3">
-                            <a class="nav-link text-decoration-none text-white" type="submit">Login</a>
+                            <a href="{{ url('login') }}" class="nav-link text-decoration-none text-white" type="submit">Login</a>
                         </li>
                     </ul>
-                    <a class="btn px-4 rounded-pill hoverdaftar text-white d-flex align-items-center"
+                    <a href="{{ url('daftar') }}" class="btn px-4 rounded-pill hoverdaftar text-white d-flex align-items-center"
                         style="{{ env('bgColor300') }}" type="submit">Daftar</a>
-                </form>
+                </div>
             </div>
         </div>
     </nav>
@@ -79,6 +79,4 @@
     .hoverdaftar:hover {
         border: white;
     }
-
-
 </style>
