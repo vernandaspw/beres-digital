@@ -2,7 +2,8 @@
     <livewire:public.component.public-navbar />
     <div class="pt-2 mb-5">
         <section class="mb-lg-5 mt-lg-5 pt-lg-3 pb-lg-3">
-            <div class="container align-items-center  d-md-flex justify-content-between"  style="padding-bottom: 100px; padding-top: 100px;">
+            <div class="container align-items-center  d-md-flex justify-content-between"
+                style="padding-bottom: 100px; padding-top: 100px;">
                 <div class="col-lg-6  d-md-none">
                     <div class="text-center mt-2">
                         <img src="{{ asset('images/human1.png') }}" width="300px" class="" alt="">
@@ -67,14 +68,13 @@
         </section>
 
         <section class="mt-3 mt-md-3 pt-md-3 pt-2 mb-3 pb-3">
-            <div class="container align-items-center d-md-flex justify-content-evenly" style="height: 280px">
+            <div class="container align-items-center d-md-flex justify-content-evenly" >
                 {{-- <div class="card-group"> --}}
                 {{-- <div class="col-lg-4 d-flex justify-content-center align-items-center mt-4">
 
                 </div> --}}
                 <div class="col-lg-10 d-flex justify-content-center align-items-center mt-4">
                     <div class="card-group">
-
                         <a href="#"
                             class="card produk-layanan text-dark text-decoration-none shadow-lg border-0 my-4 px-lg-4 mx-2 mx-md-5"
                             style="border-radius: 15px;">
@@ -90,7 +90,6 @@
                                         Cari produk yang kamu butuhkan dan mempermudah bisnis dan pekerjaan anda.
                                     </p>
                                 </div>
-
                             </div>
                         </a>
                         <a href="#"
@@ -108,27 +107,28 @@
                                         Temukan jasa yang kamu butuhkan.
                                     </p>
                                 </div>
-
                             </div>
                         </a>
-
                     </div>
                 </div>
-
             </div>
             {{-- </div> --}}
+            <div class="container mt-5">
+                <hr class="mb-0 pb-0">
+            </div>
         </section>
-        <div class="container mt-5">
-            <hr>
-        </div>
 
-        <section class="">
-            <center>
-                <h3><b> <span style="font-size: 25px">Produk</span></b></h3>
-            </center>
-            <div class="container mt-2">
+
+        <section class="mt-0 pt-0">
+
+            <div class="mb-1">
+                <center>
+                    <h3><b> <span style="font-size: 25px">Produk</span></b></h3>
+                </center>
+            </div>
+            <div class="container mt-4">
                 <div class="card-group">
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-12 col-md-4 col-xl-3">
                         <a href="#" class="card text-dark text-decoration-none border-0 my-2 mx-2"
                             style="border-radius: 15px; {{ env('bgColor400') }} ">
                             <div class="card-body p-3 text-white">
@@ -150,138 +150,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-3">
-                        <a href="#" class="card text-dark text-decoration-none border-0 my-2 mx-2"
-                            style="border-radius: 15px; {{ env('bgColor400') }} ">
-                            <div class="card-body p-3 text-white">
-                                <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
-                                    <div class="me-2">
-                                        <div class=""><img src="{{ asset('images/logoberesdigital4.png') }}"
-                                                width="50px" alt=""></div>
-                                    </div>
-                                    <div class="text-start d-flex align-items-center" style="font-size: 35px">
-                                        <h6><b>Jasa Desain</b></h6>
-                                    </div>
-                                </div>
-                                <div class="mt-3">
-                                    <p class="text-start text-wrap" style="font-size: 14px">
-                                        Kami menyediakan jasa untuk pembuatan logo, banner, packaging, uiux dan desain
-                                        kebutuhan kamu lainnya.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3">
-                        <a href="#" class="card text-dark text-decoration-none border-0 my-2 mx-2"
-                            style="border-radius: 15px; {{ env('bgColor400') }} ">
-                            <div class="card-body p-3 text-white">
-                                <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
-                                    <div class="me-2">
-                                        <div class=""><img src="{{ asset('images/logoberesdigital4.png') }}"
-                                                width="50px" alt=""></div>
-                                    </div>
-                                    <div class="text-start d-flex align-items-center" style="font-size: 35px">
-                                        <h6><b>Jasa Desain</b></h6>
-                                    </div>
-                                </div>
-                                <div class="mt-3">
-                                    <p class="text-start text-wrap" style="font-size: 14px">
-                                        Kami menyediakan jasa untuk pembuatan logo, banner, packaging, uiux dan desain
-                                        kebutuhan kamu lainnya.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3">
-                        <a href="#" class="card text-dark text-decoration-none border-0 my-2 mx-2"
-                            style="border-radius: 15px; {{ env('bgColor400') }} ">
-                            <div class="card-body p-3 text-white">
-                                <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
-                                    <div class="me-2">
-                                        <div class=""><img src="{{ asset('images/logoberesdigital4.png') }}"
-                                                width="50px" alt=""></div>
-                                    </div>
-                                    <div class="text-start d-flex align-items-center" style="font-size: 35px">
-                                        <h6><b>Jasa Desain</b></h6>
-                                    </div>
-                                </div>
-                                <div class="mt-3">
-                                    <p class="text-start text-wrap" style="font-size: 14px">
-                                        Kami menyediakan jasa untuk pembuatan logo, banner, packaging, uiux dan desain
-                                        kebutuhan kamu lainnya.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3">
-                        <a href="#" class="card text-dark text-decoration-none border-0 my-2 mx-2"
-                            style="border-radius: 15px; {{ env('bgColor400') }} ">
-                            <div class="card-body p-3 text-white">
-                                <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
-                                    <div class="me-2">
-                                        <div class=""><img src="{{ asset('images/logoberesdigital4.png') }}"
-                                                width="50px" alt=""></div>
-                                    </div>
-                                    <div class="text-start d-flex align-items-center" style="font-size: 35px">
-                                        <h6><b>Jasa Desain</b></h6>
-                                    </div>
-                                </div>
-                                <div class="mt-3">
-                                    <p class="text-start text-wrap" style="font-size: 14px">
-                                        Kami menyediakan jasa untuk pembuatan logo, banner, packaging, uiux dan desain
-                                        kebutuhan kamu lainnya.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3">
-                        <a href="#" class="card text-dark text-decoration-none border-0 my-2 mx-2"
-                            style="border-radius: 15px; {{ env('bgColor400') }} ">
-                            <div class="card-body p-3 text-white">
-                                <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
-                                    <div class="me-2">
-                                        <div class=""><img src="{{ asset('images/logoberesdigital4.png') }}"
-                                                width="50px" alt=""></div>
-                                    </div>
-                                    <div class="text-start d-flex align-items-center" style="font-size: 35px">
-                                        <h6><b>Jasa Desain</b></h6>
-                                    </div>
-                                </div>
-                                <div class="mt-3">
-                                    <p class="text-start text-wrap" style="font-size: 14px">
-                                        Kami menyediakan jasa untuk pembuatan logo, banner, packaging, uiux dan desain
-                                        kebutuhan kamu lainnya.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3">
-                        <a href="#" class="card text-dark text-decoration-none border-0 my-2 mx-2"
-                            style="border-radius: 15px; {{ env('bgColor400') }} ">
-                            <div class="card-body p-3 text-white">
-                                <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
-                                    <div class="me-2">
-                                        <div class=""><img src="{{ asset('images/logoberesdigital4.png') }}"
-                                                width="50px" alt=""></div>
-                                    </div>
-                                    <div class="text-start d-flex align-items-center" style="font-size: 35px">
-                                        <h6><b>Jasa Desain</b></h6>
-                                    </div>
-                                </div>
-                                <div class="mt-3">
-                                    <p class="text-start text-wrap" style="font-size: 14px">
-                                        Kami menyediakan jasa untuk pembuatan logo, banner, packaging, uiux dan desain
-                                        kebutuhan kamu lainnya.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+
 
 
                 </div>
@@ -296,24 +165,5 @@
         {{ env('bgColor100') }}
     }
 
-    div.scrollmenu {
-        overflow: auto;
-        white-space: nowrap;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
 
-    div.scrollmenu::-webkit-scrollbar {
-        display: none;
-    }
-
-
-    div.scrollmenu a {
-        display: inline-block;
-        text-align: center;
-        /* padding-top: 8px;
-        padding-bottom: 8px; */
-        color: black;
-        text-decoration: none;
-    }
 </style>
