@@ -244,14 +244,16 @@
 
 
         <section class="mt-4 pt-5 pb-5 " style="{{ env('bgColor100') }}">
-            <div class="mb-1">
+            <div class="mb-1 container">
                 <center>
                     <h3><b> <span style="font-size: 25px; margin-top: 10px;">Mari Mulai Proyek Bersama Kami!</span></b>
                     </h3>
                     <div class="pt-2">
-                        <a href="{{ url('pesan') }}" class="btn px-4 shadow text-white"
-                            style="{{ env('bgColor300') }} border-radius: 360px;">Pesan Layanan Sekarang</a> |
-                        <a href="{{ url('pesan') }}" class="btn px-4 shadow text-white"
+                        <a href="{{ url('pesan') }}" class="btn px-4 py-1 shadow text-white"
+                            style="{{ env('bgColor300') }} border-radius: 360px;">Pesan Layanan Sekarang</a> <div class="d-none d-md-block d-lg-block d-xl-block">
+                                |
+                            </div>
+                        <a href="{{ url('pesan') }}" class="btn px-4 py-1 shadow text-white"
                             style="{{ env('bgColor300') }} border-radius: 360px;">Kontak kami</a>
                     </div>
                 </center>
