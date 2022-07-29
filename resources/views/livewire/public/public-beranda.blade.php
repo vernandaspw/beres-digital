@@ -113,17 +113,16 @@
                 </div>
             </div>
             {{-- </div> --}}
-            <div class="container mt-5">
-                <hr class="mb-0 pb-0">
-            </div>
+
         </section>
+        <div class="container mt-5">
+            <hr class="mb-0 pb-0">
+        </div>
 
-
-        <section class="mt-0 pt-0">
-
+        <section class="mt-3 pt-0">
             <div class="mb-1">
                 <center>
-                    <h3><b> <span style="font-size: 25px">Produk</span></b></h3>
+                    <h3><b> <span style="font-size: 25px">PRODUK</span></b></h3>
                 </center>
             </div>
             <div class="container mt-4">
@@ -150,11 +149,43 @@
                             </div>
                         </a>
                     </div>
-
-
-
                 </div>
-
+            </div>
+        </section>
+        <div class="container mt-5">
+            <hr class="mb-0 pb-0">
+        </div>
+        <section class="mt-3 pt-0">
+            <div class="mb-1">
+                <center>
+                    <h3><b> <span style="font-size: 25px">LAYANAN</span></b></h3>
+                </center>
+            </div>
+            <div class="container mt-4">
+                <div class="card-group">
+                    <div class="col-lg-3 col-12 col-md-4 col-xl-3">
+                        <a href="#" class="card text-dark text-decoration-none border-0 my-2 mx-2"
+                            style="border-radius: 15px; {{ env('bgColor400') }} ">
+                            <div class="card-body p-3 text-white">
+                                <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
+                                    <div class="me-2">
+                                        <div class=""><img src="{{ asset('images/logoberesdigital4.png') }}"
+                                                width="50px" alt=""></div>
+                                    </div>
+                                    <div class="text-start d-flex align-items-center" style="font-size: 35px">
+                                        <h6><b>Jasa Desain</b></h6>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <p class="text-start text-wrap" style="font-size: 14px">
+                                        Kami menyediakan jasa untuk pembuatan logo, banner, packaging, uiux dan desain
+                                        kebutuhan kamu lainnya.
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
