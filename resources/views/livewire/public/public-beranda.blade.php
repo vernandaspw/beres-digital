@@ -68,7 +68,7 @@
         </section>
 
         <section class="mt-3 mt-md-3 pt-md-3 pt-2 mb-3 pb-3">
-            <div class="container align-items-center d-md-flex justify-content-evenly" >
+            <div class="container align-items-center d-md-flex justify-content-evenly">
                 {{-- <div class="card-group"> --}}
                 {{-- <div class="col-lg-4 d-flex justify-content-center align-items-center mt-4">
 
@@ -188,6 +188,37 @@
                 </div>
             </div>
         </section>
+        <div class="container mt-5">
+            <hr class="mb-0 pb-0">
+        </div>
+        <section class="mt-3 pt-0">
+            <div class="mb-1">
+                <center>
+                    <h3><b> <span style="font-size: 25px">PORTOFOLIO</span></b></h3>
+                </center>
+            </div>
+            <div class="container mt-4">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                            aria-selected="true">Semua</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab"
+                            aria-controls="pills-profile" aria-selected="false">Website</button>
+                    </li>
+
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab" tabindex="0">...</div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                        aria-labelledby="pills-profile-tab" tabindex="0">...</div>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 
@@ -195,6 +226,4 @@
     .produk-layanan:hover {
         {{ env('bgColor100') }}
     }
-
-
 </style>
