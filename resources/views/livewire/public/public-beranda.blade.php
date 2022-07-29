@@ -24,11 +24,12 @@
                         <div class="mt-3 d-lg-flex d-md-flex d-xl-flex">
                             <div class="">
                                 <a href="{{ url('pesan') }}" class="btn px-4 shadow text-white"
-                                style="{{ env('bgColor300') }} border-radius: 360px;">Pesan Layanan Sekarang</a>
+                                    style="{{ env('bgColor300') }} border-radius: 360px;">Pesan Layanan Sekarang</a>
                             </div>
                             <div class="">
-                                <a href="{{ url('order-flow') }}" class="ms-3 mt-2 mt-lg-0 mt-md-0 px-3 btn btn-transparent rounded-pill text-decoration-none"
-                                style="{{ env('fontColor300') }}">Cara pesan</a>
+                                <a href="{{ url('order-flow') }}"
+                                    class="ms-3 mt-2 mt-lg-0 mt-md-0 px-3 btn btn-transparent rounded-pill text-decoration-none"
+                                    style="{{ env('fontColor300') }}">Cara pesan</a>
                             </div>
                             {{-- <a href="{{ url('pesan') }}" class="btn px-4 shadow-sm text-white" style="{{ env('bgColor300') }} border-radius: 360px;">Google Play</a> --}}
                         </div>
@@ -124,10 +125,10 @@
         </div>
 
         <section class="mt-3 pt-0">
-            <div class="mb-1">
-                <center>
-                    <h3><b> <span style="font-size: 25px">PRODUK</span></b></h3>
-                </center>
+            <div class="mb-1 container">
+
+                <h3><b> <span style="font-size: 25px">PRODUK</span></b></h3>
+
             </div>
             <div class="container mt-4">
                 <div class="card-group">
@@ -160,10 +161,10 @@
             <hr class="mb-0 pb-0">
         </div>
         <section class="mt-3 pt-0">
-            <div class="mb-1">
-                <center>
-                    <h3><b> <span style="font-size: 25px">LAYANAN</span></b></h3>
-                </center>
+            <div class="mb-1 container">
+
+                <h3><b> <span style="font-size: 25px">LAYANAN</span></b></h3>
+
             </div>
             <div class="container mt-4">
                 <div class="card-group">
@@ -196,17 +197,29 @@
             <hr class="mb-0 pb-0">
         </div>
         <section class="mt-3 pt-0">
-            <div class="mb-1">
-                <center>
-                    <h3><b> <span style="font-size: 25px">PORTOFOLIO</span></b></h3>
-                </center>
+            <div class="mb-1 container">
+
+                <h3><b> <span style="font-size: 25px">PORTOFOLIO</span></b></h3>
+
             </div>
             <div class="container mt-4">
-                <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+
+                <ul class="nav d-flex flex-nowrap overflow-auto nav-pills mb-3 justify-content-start" id="pills-tab"
+                    role="tablist">
                     <li class="nav-item m-1" role="presentation">
                         <button class="nav-link active rounded-pill" id="pills-home-tab" data-bs-toggle="pill"
                             data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
                             aria-selected="true">Semua</button>
+                    </li>
+                    <li class="nav-item m-1" role="presentation">
+                        <button class="nav-link rounded-pill" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab"
+                            aria-controls="pills-profile" aria-selected="false">Website</button>
+                    </li>
+                    <li class="nav-item m-1" role="presentation">
+                        <button class="nav-link rounded-pill" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab"
+                            aria-controls="pills-profile" aria-selected="false">Website</button>
                     </li>
                     <li class="nav-item m-1" role="presentation">
                         <button class="nav-link rounded-pill" id="pills-profile-tab" data-bs-toggle="pill"
@@ -271,6 +284,15 @@
 </div>
 
 <style>
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
     .produk-layanan:hover {
         {{ env('bgColor100') }}
     }
@@ -281,5 +303,32 @@
 
     .portofoliohover:hover {
         box-shadow: rgba(46, 195, 240, 0.4) 0px 5px, rgba(46, 195, 240, 0.3) 0px 10px, rgba(46, 195, 240, 0.2) 0px 15px, rgba(46, 195, 240, 0.1) 0px 20px, rgba(46, 195, 240, 0.05) 0px 25px;
+    }
+
+    div.scrollmenu {
+        overflow: auto;
+        white-space: nowrap;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    div.scrollmenu::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    div.scrollmenu a {
+        display: inline-block;
+        text-align: center;
+        /* padding-top: 8px;
+        padding-bottom: 8px; */
+        color: black;
+        text-decoration: none;
+    }
+
+    div.scrollmenu .card:hover {
+        color: white;
+        border: none;
+        background-color: {{ env('COLOR_PRIMARY') }};
     }
 </style>
