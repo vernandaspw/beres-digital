@@ -24,11 +24,11 @@
                                 <hr>
                                 <div class="">
                                     <label for="nama">Nama lengkap</label>
-                                    <input class="form-control rounded-pill" type="text" maxlength="30" placeholder="isi nama lengkap">
+                                    <input required class="form-control rounded-pill" type="text" maxlength="30" placeholder="isi nama lengkap">
                                 </div>
                                 <div class="mt-2">
                                     <label for="jeniskelamin">Jenis kelamin</label>
-                                    <select class="form-control rounded-pill" id="jeniskelamin">
+                                    <select required class="form-control rounded-pill" id="jeniskelamin">
                                         <option value="m">Laki laki</option>
                                         <option value="f">Perempuan</option>
                                     </select>
