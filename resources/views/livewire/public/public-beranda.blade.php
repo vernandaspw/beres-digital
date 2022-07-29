@@ -24,7 +24,7 @@
                         <div class="mt-3">
                             <a href="{{ url('pesan') }}" class="btn px-4 shadow text-white"
                                 style="{{ env('bgColor300') }} border-radius: 360px;">Pesan Layanan Sekarang</a>
-                            <a href="{{ url('pesan') }}" class="ms-3 text-decoration-none"
+                            <a href="{{ url('pesan') }}" class="ms-3 px-3 py-2 text-decoration-none"
                                 style="{{ env('fontColor300') }}">Cara pesan</a>
                             {{-- <a href="{{ url('pesan') }}" class="btn px-4 shadow-sm text-white" style="{{ env('bgColor300') }} border-radius: 360px;">Google Play</a> --}}
                         </div>
