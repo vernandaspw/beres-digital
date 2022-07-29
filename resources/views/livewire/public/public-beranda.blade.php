@@ -21,11 +21,15 @@
                                 Digital! #GrowWithBeresDigital
                             </p>
                         </div>
-                        <div class="mt-3">
-                            <a href="{{ url('pesan') }}" class="btn px-4 shadow text-white"
+                        <div class="mt-3 d-lg-flex d-md-flex d-xl-flex">
+                            <div class="">
+                                <a href="{{ url('pesan') }}" class="btn px-4 shadow text-white"
                                 style="{{ env('bgColor300') }} border-radius: 360px;">Pesan Layanan Sekarang</a>
-                            <a href="{{ url('pesan') }}" class="ms-3 px-3 py-2 text-decoration-none"
+                            </div>
+                            <div class="">
+                                <a href="{{ url('order-flow') }}" class="ms-3 mt-2 mt-lg-0 mt-md-0 px-3 btn btn-transparent rounded-pill text-decoration-none"
                                 style="{{ env('fontColor300') }}">Cara pesan</a>
+                            </div>
                             {{-- <a href="{{ url('pesan') }}" class="btn px-4 shadow-sm text-white" style="{{ env('bgColor300') }} border-radius: 360px;">Google Play</a> --}}
                         </div>
                     </div>
@@ -248,12 +252,10 @@
                 <center>
                     <h3><b> <span style="font-size: 25px; margin-top: 10px;">Mari Mulai Proyek Bersama Kami!</span></b>
                     </h3>
-                    <div class="pt-2">
-                        <a href="{{ url('pesan') }}" class="btn px-4 my-1 shadow text-white"
-                            style="{{ env('bgColor300') }} border-radius: 360px;">Pesan Layanan Sekarang</a> <div class="d-none d-md-block d-lg-block d-xl-block">
-                                |
-                            </div>
-                        <a href="{{ url('pesan') }}" class="btn px-4 my-1 shadow text-white"
+                    <div class="pt-2 d-md-flex d-lg-flex d-xl-flex justify-content-center">
+                        <a href="{{ url('pesan') }}" class="btn px-4 my-1 mx-1 shadow text-white"
+                            style="{{ env('bgColor300') }} border-radius: 360px;">Pesan Layanan Sekarang</a>
+                        <a href="{{ url('pesan') }}" class="btn px-4 my-1 mx-1 shadow text-white"
                             style="{{ env('bgColor300') }} border-radius: 360px;">Kontak kami</a>
                     </div>
                 </center>
