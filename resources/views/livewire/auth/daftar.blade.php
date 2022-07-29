@@ -38,17 +38,14 @@
                                     <input required class="form-control rounded-pill" type="date"
                                         placeholder="masukan tanggal lahir">
                                 </div>
-                                <div class="mt-2 d-flex justify-content-between">
+                                <div class="mt-2 d-flex justify-content-start">
                                     <div class="">
                                         <input checked type="checkbox" class="form-check-input" id="lupapassword">
                                         <label for="lupapassword">
                                             Ingat saya
                                         </label>
                                     </div>
-                                    <div class="">
-                                        <a href="{{ url('lupa-password') }}" class="text-decoration-none">Lupa
-                                            password</a>
-                                    </div>
+
                                 </div>
                                 <div class="mt-2">
                                     <button type="submit" class="form-control btn text-white rounded-pill"
