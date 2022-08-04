@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('code', 4)->nullable();
-            $table->timestampTz('code_expired')->nullable();
+            $table->timestamp('code_expired')->nullable();
             $table->timestamps();
         });
     }

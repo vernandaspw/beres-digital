@@ -25,7 +25,7 @@ class Tfa extends Component
                         ->where('code', $this->code)
                         ->first();
         if ($find) {
-            if ($find->code_expired <= now()) {
+            if ($find->code_expired >= now()) {
                 Session::put('tfa', auth()->user()->id);
                 if (auth()->user()->role == 'customer') {
                     redirect()->to('dashboard');
