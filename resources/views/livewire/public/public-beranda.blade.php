@@ -120,6 +120,7 @@
             {{-- </div> --}}
 
         </section>
+
         <div class="container mt-5">
             <hr class="mb-0 pb-0">
         </div>
@@ -275,12 +276,9 @@
             </div>
         </section>
 
-        <section class="pt-3 pb-1" style="{{ env('bgColor300') }}">
-            <p class="text-white text-center">
-                Copyright &copy; 2022 Beres Digital. All Rights Reserved.
-            </p>
-        </section>
+
     </div>
+    <livewire:public.component.public-footer />
 </div>
 
 <style>

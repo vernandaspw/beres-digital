@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="mt-3 text-center" style="font-size: 14px">
-                            Sudah memiliki akun? <a href="{{ url('masuk') }}">Masuk</a>
+                            paruh wSudah memiliki akun? <a href="{{ url('masuk') }}">Masuk</a>
                         </div>
                     </div>
                 </div>
