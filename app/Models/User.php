@@ -54,7 +54,7 @@ class User extends Authenticatable
     public function generateCode()
     {
         $code = rand(1000, 9999);
-        $code_expired = now()->addMinutes(1);
+        $code_expired = now()->addMinutes(10);
 
         UserCode::updateOrCreate(
             ['user_id' => auth()->user()->id,
