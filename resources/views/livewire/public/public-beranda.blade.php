@@ -197,7 +197,7 @@
         <div class="container mt-5">
             <hr class="mb-0 pb-0">
         </div>
-        <section class="mt-3 pt-0">
+        <section class="mt-3 pt-0 pb-3">
             <div class="mb-1 container">
 
                 <h3><b> <span style="font-size: 25px">PORTOFOLIO</span></b></h3>

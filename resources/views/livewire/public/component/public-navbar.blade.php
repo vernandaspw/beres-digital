@@ -9,7 +9,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                        <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -22,7 +22,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Semua produk</a></li>
+                            <li><a class="dropdown-item" href="{{ url('produk', []) }}">Semua produk</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -39,11 +39,11 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Semua layanan</a></li>
+                            <li><a class="dropdown-item" href="{{ url('layanan/jenis', []) }}">Semua layanan</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Portofolio</a>
+                        <a class="nav-link" aria-current="page" href="{{ url('portofolio') }}">Portofolio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -51,8 +51,8 @@
                             Mengenai kami
                         </a>
                         <ul class="dropdown-menu border-0 shadow-sm" style="{{ env('bgColor100') }}">
-                            <li><a class="dropdown-item " href="#">Tentang</a></li>
-                            <li><a class="dropdown-item " href="#">Kontak</a></li>
+                            <li><a class="dropdown-item " href="{{ url('tentang', []) }}">Tentang</a></li>
+                            <li><a class="dropdown-item " href="{{ url('kontak', []) }}">Kontak</a></li>
 
                         </ul>
                     </li>

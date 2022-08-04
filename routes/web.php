@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Livewire\Auth\Daftar;
 use App\Http\Livewire\Auth\Masuk;
+use App\Http\Livewire\Auth\Tfa;
+use App\Http\Livewire\Private\PrivateDashboard;
 use App\Http\Livewire\Public\Layanan\PublicLayananDetail;
 use App\Http\Livewire\Public\Layanan\PublicLayananJenis;
 use App\Http\Livewire\Public\Layanan\PublicLayananJenisDetail;
@@ -20,8 +24,10 @@ use App\Http\Livewire\Public\PublicUbahProfil;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('login', Masuk::class)->name('login');
-Route::get('daftar', Daftar::class);
+Route::middleware(['hastfa'])->group(function () {
+    Route::get('login', Masuk::class)->name('login');
+    Route::get('daftar', Daftar::class);
+});
 
 Route::get('/', PublicBeranda::class);
 
@@ -37,15 +43,36 @@ Route::get('portofolio/{slug}', PublicPortofolioDetail::class);
 
 Route::get('tentang', PublicTentang::class);
 
+// Route::get('2fa', [App\Http\Controllers\TwoFAController::class, 'index'])->name('2fa.index');
+// Route::post('2fa', [App\Http\Controllers\TwoFAController::class, 'store'])->name('2fa.post');
+// Route::get('2fa/reset', [App\Http\Controllers\TwoFAController::class, 'resend'])->name('2fa.resend');
+
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('pesan', PublicPesan::class);
-    Route::get('pesan/{layananjenis}/{layanan}/{layananharga}', PublicPesanSelectedHarga::class);
+    Route::middleware(['hastfa'])->group(function () {
+        Route::get('tfa', Tfa::class)->name('tfa');
+    });
 
-    Route::get('dashboard', PublicDashboard::class);
-    Route::get('dashboard/ubah-profil', PublicUbahProfil::class);
-    Route::get('dashboard/ubah-email', PublicUbahEmail::class);
-    Route::get('dashboard/ubah-password', PublicUbahPassword::class);
+    Route::middleware(['tfa'])->group(function () {
+        Route::get('logout', [LogoutController::class, 'logout']);
 
-    Route::get('admin', PublicDashboard::class);
+        Route::middleware(['iscustomer'])->group(function () {
+            Route::get('pesan', PublicPesan::class);
+            Route::get('pesan/{layananjenis}/{layanan}/{layananharga}', PublicPesanSelectedHarga::class);
 
+            Route::get('dashboard', PublicDashboard::class);
+            Route::get('dashboard/ubah-profil', PublicUbahProfil::class);
+            Route::get('dashboard/ubah-email', PublicUbahEmail::class);
+            Route::get('dashboard/ubah-password', PublicUbahPassword::class);
+        });
+
+        Route::middleware(['isnotcustomer'])->group(function () {
+            Route::get('admin', PrivateDashboard::class);
+
+            Route::get('kelola-user', PrivateDashboard::class);
+            Route::get('kelola-produk', PrivateDashboard::class);
+            Route::get('kelola-layanan', PrivateDashboard::class);
+
+        });
+    });
 });
