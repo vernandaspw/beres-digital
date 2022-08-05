@@ -8,6 +8,6 @@ class PublicPesan extends Component
 {
     public function render()
     {
-        return view('livewire.public.pesan.public-pesan');
+        return view('livewire.public.pesan.public-pesan')->extends('layouts.app')->section('content');
     }
 }
