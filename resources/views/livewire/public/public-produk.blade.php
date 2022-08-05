@@ -29,6 +29,10 @@
 
         </div>
     </main>
+
+    {{-- <div class="mt-5">
+        <livewire:public.component.public-footer />
+    </div> --}}
 </div>
 
 <style>

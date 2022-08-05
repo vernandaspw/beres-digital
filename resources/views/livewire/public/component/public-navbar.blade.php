@@ -32,12 +32,14 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link @if(Request::is('layanan*'))
+                            active
+                        @endif dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Layanan
                         </a>
                         <ul class="dropdown-menu border-0 shadow-sm" style="{{ env('bgColor100') }}">
-                            <li><a class="dropdown-item " href="#">Jasa desain</a></li>
+                            <li><a class="dropdown-item " href="{{ url('layanan/jenis', 'jasa-desain') }}">Jasa desain</a></li>
                             <li><a class="dropdown-item " href="#">Jasa buat website</a></li>
                             <li><a class="dropdown-item " href="#">Jasa buat aplikasi</a></li>
                             <li><a class="dropdown-item " href="#">Jasa foto</a></li>
@@ -45,7 +47,9 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ url('layanan/jenis', []) }}">Semua layanan</a></li>
+                            <li><a class="dropdown-item @if(Request::is('layanan*'))
+                                active
+                            @endif" href="{{ url('layanan/jenis', []) }}">Semua layanan</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

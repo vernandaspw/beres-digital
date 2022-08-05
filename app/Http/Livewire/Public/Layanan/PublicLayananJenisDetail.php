@@ -8,6 +8,6 @@ class PublicLayananJenisDetail extends Component
 {
     public function render()
     {
-        return view('livewire.public.layanan.public-layanan-jenis-detail');
+        return view('livewire.public.layanan.public-layanan-jenis-detail')->extends('layouts.app')->section('content');
     }
 }

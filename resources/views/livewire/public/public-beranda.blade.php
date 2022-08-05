@@ -27,7 +27,7 @@
                                     style="{{ env('bgColor300') }} border-radius: 360px;">Pesan Layanan Sekarang</a>
                             </div>
                             <div class="">
-                                <a href="{{ url('order-flow') }}"
+                                <a href="{{ url('cara-pesan') }}"
                                     class="ms-3 mt-2 mt-lg-0 mt-md-0 px-3 btn btn-transparent rounded-pill text-decoration-none"
                                     style="{{ env('fontColor300') }}">Cara pesan</a>
                             </div>
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="#"
+                        <a href="{{ url('layanan/jenis', []) }}"
                             class="card produk-layanan text-dark text-decoration-none shadow-lg border-0 my-4 px-lg-4 mx-2 mx-md-5"
                             style="border-radius: 15px;">
                             <div class="card-body">
@@ -134,7 +134,7 @@
             <div class="container mt-4">
                 <div class="card-group">
                     <div class="col-lg-3 col-12 col-md-4 col-xl-3">
-                        <a href="#" class="card text-dark text-decoration-none border-0 my-2 mx-2"
+                        <a href="https://qumanten.com"  target="_blank"  rel="noopener noreferrer" class="card produkcard text-dark text-decoration-none border-0 my-2 mx-2"
                             style="border-radius: 15px; {{ env('bgColor400') }} ">
                             <div class="card-body p-3 text-white">
                                 <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
@@ -143,18 +143,18 @@
                                                 width="50px" alt=""></div>
                                     </div>
                                     <div class="text-start d-flex align-items-center" style="font-size: 35px">
-                                        <h6><b>Jasa Desain</b></h6>
+                                        <h6><b>Qumanten</b></h6>
                                     </div>
                                 </div>
                                 <div class="mt-3">
                                     <p class="text-start text-wrap" style="font-size: 14px">
-                                        Kami menyediakan jasa untuk pembuatan logo, banner, packaging, uiux dan desain
-                                        kebutuhan kamu lainnya.
+                                        Butuh undangan digital? lihat disini
                                     </p>
                                 </div>
                             </div>
                         </a>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -170,7 +170,7 @@
             <div class="container mt-4">
                 <div class="card-group">
                     <div class="col-lg-3 col-12 col-md-4 col-xl-3">
-                        <a href="#" class="card text-dark text-decoration-none border-0 my-2 mx-2"
+                        <a href="#" class="card layanancard text-dark text-decoration-none border-0 my-2 mx-2"
                             style="border-radius: 15px; {{ env('bgColor400') }} ">
                             <div class="card-body p-3 text-white">
                                 <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
@@ -328,5 +328,13 @@
         color: white;
         border: none;
         background-color: {{ env('COLOR_PRIMARY') }};
+    }
+
+    .produkcard:hover{
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    }
+
+    .layanancard:hover{
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
     }
 </style>

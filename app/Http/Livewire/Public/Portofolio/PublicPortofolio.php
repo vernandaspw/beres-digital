@@ -8,6 +8,6 @@ class PublicPortofolio extends Component
 {
     public function render()
     {
-        return view('livewire.public.portofolio.public-portofolio');
+        return view('livewire.public.portofolio.public-portofolio')->extends('layouts.app')->section('content');
     }
 }

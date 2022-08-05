@@ -66,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::middleware(['iscustomer'])->group(function () {
             Route::get('pesan', PublicPesan::class);
-            Route::get('pesan/{layananjenis}/{layanan}/{layananharga}', PublicPesanSelectedHarga::class);
+            Route::get('pesan/{layananjenis}/{layanan}', PublicPesanSelectedHarga::class);
 
             Route::get('dashboard', PublicDashboard::class);
             Route::get('dashboard/ubah-profil', PublicUbahProfil::class);
