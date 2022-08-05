@@ -80,7 +80,7 @@
                 </div> --}}
                 <div class="col-lg-10 d-flex justify-content-center align-items-center mt-4">
                     <div class="card-group">
-                        <a href="#"
+                        <a href="{{ url('produk', []) }}"
                             class="card produk-layanan text-dark text-decoration-none shadow-lg border-0 my-4 px-lg-4 mx-2 mx-md-5"
                             style="border-radius: 15px;">
                             <div class="card-body">

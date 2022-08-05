@@ -8,6 +8,6 @@ class PublicProduk extends Component
 {
     public function render()
     {
-        return view('livewire.public.public-produk');
+        return view('livewire.public.public-produk')->extends('layouts.app')->section('content');
     }
 }

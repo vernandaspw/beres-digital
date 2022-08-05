@@ -9,10 +9,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Beranda</a>
+                        <a class="nav-link @if(Request::is('/'))
+                        active
+                        @endif" aria-current="page" href="{{ url('/') }}">Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link @if(Request::is('produk*'))
+                        active
+                        @endif dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Produk
                         </a>
@@ -22,7 +26,9 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ url('produk', []) }}">Semua produk</a></li>
+                            <li><a class="dropdown-item @if(Request::is('produk*'))
+                                active
+                            @endif" href="{{ url('produk', []) }}">Semua produk</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
