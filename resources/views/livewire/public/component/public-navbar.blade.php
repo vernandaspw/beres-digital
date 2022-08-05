@@ -21,8 +21,8 @@
                             Produk
                         </a>
                         <ul class="dropdown-menu border-0 shadow-sm" style="{{ env('bgColor100') }}">
-                            <li><a class="dropdown-item " href="#">Qumanten</a></li>
-                            <li><a class="dropdown-item " href="#">Sewa Tamu</a></li>
+                            <li><a class="dropdown-item text-dark text-decoration-none" href="https://qumanten.com"  target="_blank"  rel="noopener noreferrer">Qumanten</a></li>
+
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
