@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Livewire\Auth\Daftar;
@@ -31,6 +32,10 @@ Route::middleware(['hastfa'])->group(function () {
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
+Route::get('lupa-password', [ForgotPasswordController::class, 'showForgetPasswordForm']);
+Route::post('lupa-password-send', [ForgotPasswordController::class, 'submitForgetPasswordForm']);
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm']);
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm']);
 
 Route::get('/', PublicBeranda::class);
 
