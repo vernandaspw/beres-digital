@@ -52,7 +52,7 @@
                                         style="{{ env('bgColor200') }}">DAFTAR</button>
                                 </div>
                             </form>
-                            {{-- <div class="text-center mt-4">
+                            <div class="text-center mt-4">
                                 Atau lanjutkan dengan
                             </div>
                             <div class="mt-2 text-center">
@@ -61,7 +61,7 @@
                                         <img class="" width="30px" src="{{ asset('images/google.png') }}">
                                     </a>
                                 </div>
-                            </div> --}}
+                            </div>
                         </div>
                         <div class="mt-3 text-center" style="font-size: 14px">
                             Sudah memiliki akun? <a href="{{ url('login') }}">Masuk</a>
