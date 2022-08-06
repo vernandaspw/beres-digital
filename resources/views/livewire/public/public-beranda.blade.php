@@ -262,7 +262,7 @@
 
 
         <section class="mt-4 pt-5 pb-5 " style="{{ env('bgColor100') }}">
-            <div class="mb-1 container">
+            <div class="mb-1 container py-4">
                 <center>
                     <h3><b> <span style="font-size: 25px; margin-top: 10px;">Mari Mulai Proyek Bersama Kami!</span></b>
                     </h3>

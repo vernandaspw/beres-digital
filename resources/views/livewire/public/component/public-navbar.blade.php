@@ -76,7 +76,7 @@
                                 {{ auth()->user()->nama }}
                             </a>
                             <ul class="dropdown-menu border-0 shadow-sm" style="{{ env('bgColor100') }}">
-                                <li><a class="dropdown-item " href="{{ url('tentang', []) }}">Dashboard</a></li>
+                                <li><a class="dropdown-item " href="{{ auth()->user()->role == 'customer' ? url('dashboard') : url('admin') }}">Dashboard</a></li>
                                 <li><a class="dropdown-item " href="{{ url('tentang', []) }}">Akun</a></li>
                                 <li><a class="dropdown-item text-danger" href="{{ url('logout', []) }}">Logout</a></li>
                             </ul>
@@ -91,7 +91,7 @@
                     <a href="{{ url('daftar') }}" class="btn px-4 rounded-pill hoverdaftar text-white d-flex align-items-center"
                         style="{{ env('bgColor300') }}" type="submit">Daftar</a>
                     @endif
-                    
+
                 </div>
             </div>
         </div>
