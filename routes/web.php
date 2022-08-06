@@ -61,9 +61,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('tfa', Tfa::class)->name('tfa');
     });
 
+    Route::get('logout', [LogoutController::class, 'logout']);
     Route::middleware(['tfa'])->group(function () {
-        Route::get('logout', [LogoutController::class, 'logout']);
-
         Route::get('pesan', PublicPesan::class);
         Route::get('pesan/{layananjenis}/{layanan}', PublicPesanSelectedHarga::class);
 
