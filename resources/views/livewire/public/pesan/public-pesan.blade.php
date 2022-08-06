@@ -11,9 +11,13 @@
                             <h3>
                                 Pesan Layanan
                             </h3>
-                            <p>
+                            <div>
                                 Isi formulir dibawah untuk proses pemesanan
-                            </p>
+
+                            </div>
+                            <div class="text-danger" style="font-size: 13px">
+                                *pastikan nomor ponsel pada akun sama dengan nomor whatsapps
+                            </div>
                             <hr>
                             <div class="">
 
