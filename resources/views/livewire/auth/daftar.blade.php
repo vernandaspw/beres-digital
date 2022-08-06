@@ -22,9 +22,13 @@
                                         placeholder="masukan password">
                                 </div>
                                 <hr>
-                                <div class="">
+                                <div class="mt-2">
                                     <label for="nama">Nama lengkap</label>
                                     <input required class="form-control rounded-pill" type="text" maxlength="30" placeholder="isi nama lengkap">
+                                </div>
+                                <div class="mt-2">
+                                    <label for="ponsel">Nomor ponsel/whatsapp</label>
+                                    <input required class="form-control rounded-pill" type="tel" maxlength="13" placeholder="08965757***">
                                 </div>
                                 <div class="mt-2">
                                     <label for="jeniskelamin">Jenis kelamin</label>
