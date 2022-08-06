@@ -1,13 +1,13 @@
 <div>
     <livewire:public.component.public-navbar />
 
-    <main class="mt-5 pt-5 container">
+    <main class="mt-5 pt-5 pb-5 container">
         <div class="">
             <h3>Portofolio</h3>
             <p>Jasa yang telah kami kerjakan</p>
         </div>
         <section class="mt-3 pt-0 pb-3">
-           
+
             <div class="mt-4">
                 <ul class="nav d-flex flex-nowrap overflow-auto nav-pills mb-3 justify-content-start" id="pills-tab"
                     role="tablist">
@@ -37,7 +37,7 @@
                         aria-labelledby="pills-home-tab" tabindex="0">
                         <div class="card-group">
                             <div class="col-lg-3 col-12 col-md-4 col-xl-3">
-                                <a href="#"
+                                <a href="{{ url('portofolio', 'nama-project') }}"
                                     class="card portofoliohover text-dark text-decoration-none border-0 my-2 mx-2"
                                     style="border-radius: 15px; ">
                                     <img class="card-img-top" height="170px" src="{{ asset('React.jpg') }}"
