@@ -55,16 +55,27 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ url('portofolio') }}">Portofolio</a>
+                        <a class="nav-link @if(Request::is('portofolio*'))
+                        active
+                        @endif" aria-current="page" href="{{ url('portofolio') }}">Portofolio</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link @if(Request::is('tentang'))
+                        active
+                        @elseif (Request::is('kontak'))
+                        active
+                        @endif dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Mengenai kami
                         </a>
                         <ul class="dropdown-menu border-0 shadow-sm" style="{{ env('bgColor100') }}">
-                            <li><a class="dropdown-item " href="{{ url('tentang', []) }}">Tentang</a></li>
-                            <li><a class="dropdown-item " href="{{ url('kontak', []) }}">Kontak</a></li>
+                            <li><a class="dropdown-item @if(Request::is('tentang'))
+                                active
+
+                                @endif" href="{{ url('tentang', []) }}">Tentang</a></li>
+                            <li><a class="dropdown-item @if(Request::is('kontak'))
+                                active
+                                @endif" href="{{ url('kontak', []) }}">Kontak</a></li>
 
                         </ul>
                     </li>

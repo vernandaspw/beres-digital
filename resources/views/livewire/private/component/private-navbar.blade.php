@@ -9,7 +9,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url('admin') }}">Dashboard</a>
+                        <a class="nav-link @if(Request::is('admin'))
+                        active
+                        @endif" aria-current="page" href="{{ url('admin') }}">Dashboard</a>
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="{{ url('pembayaran') }}">Pembayaran</a>
@@ -17,8 +19,12 @@
                     <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="{{ url('project') }}">Project</a>
                     </li>
+
+                    @if(auth()->user()->role != 'finance')
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ url('kelola-produk') }}">Kelola Produk</a>
+                        <a class="nav-link @if(Request::is('kelola-produk'))
+active
+                        @endif" aria-current="page" href="{{ url('kelola-produk') }}">Kelola Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="{{ url('kelola-layanan') }}">Kelola Layanan</a>
@@ -26,7 +32,17 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ url('portofolio') }}">Kelola Portofolio</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    @endif
+
+                    @if(auth()->user()->role == 'superadmin')
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ url('setting') }}">Setting</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ url('kelola-akun') }}">Kelola Akun</a>
+                    </li>
+                    @endif
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Setting
@@ -36,7 +52,7 @@
                             <li><a class="dropdown-item " href="{{ url('tentang', []) }}">Tentang</a></li>
                             <li><a class="dropdown-item " href="{{ url('kontak', []) }}">Kontak</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">

@@ -7,6 +7,7 @@ use App\Http\Livewire\Auth\Daftar;
 use App\Http\Livewire\Auth\Masuk;
 use App\Http\Livewire\Auth\Tfa;
 use App\Http\Livewire\Private\PrivateDashboard;
+use App\Http\Livewire\Private\PrivateKelolaProduk;
 use App\Http\Livewire\Public\Layanan\PublicLayananDetail;
 use App\Http\Livewire\Public\Layanan\PublicLayananJenis;
 use App\Http\Livewire\Public\Layanan\PublicLayananJenisDetail;
@@ -15,7 +16,9 @@ use App\Http\Livewire\Public\Pesan\PublicPesanSelectedHarga;
 use App\Http\Livewire\Public\Portofolio\PublicPortofolio;
 use App\Http\Livewire\Public\Portofolio\PublicPortofolioDetail;
 use App\Http\Livewire\Public\PublicBeranda;
+use App\Http\Livewire\Public\PublicCaraPesan;
 use App\Http\Livewire\Public\PublicDashboard;
+use App\Http\Livewire\Public\PublicKontak;
 use App\Http\Livewire\Public\PublicProduk;
 use App\Http\Livewire\Public\PublicProdukDetail;
 use App\Http\Livewire\Public\PublicTentang;
@@ -50,6 +53,9 @@ Route::get('portofolio', PublicPortofolio::class);
 Route::get('portofolio/{slug}', PublicPortofolioDetail::class);
 
 Route::get('tentang', PublicTentang::class);
+Route::get('kontak', PublicKontak::class);
+
+Route::get('cara-pesan', PublicCaraPesan::class);
 
 // Route::get('2fa', [App\Http\Controllers\TwoFAController::class, 'index'])->name('2fa.index');
 // Route::post('2fa', [App\Http\Controllers\TwoFAController::class, 'store'])->name('2fa.post');
@@ -79,7 +85,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('admin', PrivateDashboard::class);
 
             Route::get('kelola-user', PrivateDashboard::class);
-            Route::get('kelola-produk', PrivateDashboard::class);
+            Route::get('kelola-produk', PrivateKelolaProduk::class);
             Route::get('kelola-layanan', PrivateDashboard::class);
 
         });

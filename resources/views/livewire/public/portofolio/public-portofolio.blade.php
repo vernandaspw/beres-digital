@@ -1,7 +1,7 @@
 <div>
     <livewire:public.component.public-navbar />
 
-    <main class="mt-5 pt-5 pb-5 container">
+    <main class="mt-4 pt-5 pb-5 container">
         <div class="">
             <h3>Portofolio</h3>
             <p>Jasa yang telah kami kerjakan</p>

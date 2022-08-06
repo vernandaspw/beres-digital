@@ -1,7 +1,9 @@
 <div>
     {{-- Because she competes with no one, no one can compete with her. --}}
 
-    <section class="mt-4 pt-5 pb-5 " style="{{ env('bgColor100') }}">
+
+
+    <section class=" pt-5 pb-5 " style="{{ env('bgColor100') }}">
         <div class="mb-1 container py-4">
             <center>
                 <h3><b> <span style="font-size: 25px; margin-top: 10px;">Mari Mulai Proyek Bersama Kami!</span></b>
@@ -9,7 +11,7 @@
                 <div class="pt-2 d-md-flex d-lg-flex d-xl-flex justify-content-center">
                     <a href="{{ url('pesan') }}" class="btn px-4 my-1 mx-1 shadow text-white"
                         style="{{ env('bgColor300') }} border-radius: 360px;">Pesan Layanan Sekarang</a>
-                    <a href="{{ url('pesan') }}" class="btn px-4 my-1 mx-1 shadow text-white"
+                    <a target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=6285156701553&text=Hi%2C%20Saya%20mau%20bertanya%20mengenai%20layanan%20beres%20digital%0A" class="btn px-4 my-1 mx-1 shadow text-white"
                         style="{{ env('bgColor300') }} border-radius: 360px;">Kontak kami</a>
                 </div>
             </center>

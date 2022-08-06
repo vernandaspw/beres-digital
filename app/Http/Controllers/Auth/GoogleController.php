@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,7 @@ class GoogleController extends Controller
                 return redirect()->intended('tfa');
             } else {
                 $newUser = User::updateOrCreate(['email' => $user->email], [
-                    'nama' => $user->name,
+                    'nama' => Str::limit($user->name,35),
                     'email' => $user->email,
                     'google_id' => $user->id,
                     'role' => 'customer',
