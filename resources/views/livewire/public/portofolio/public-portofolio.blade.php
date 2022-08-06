@@ -45,7 +45,7 @@
                                     <div class="card-body">
                                         <div
                                             class=""style="font-weight: lighter; font-size: 13px; {{ env('fontColor300') }}">
-                                            Website
+                                            Jasa buat website | landing page
                                         </div>
                                         <div class="text-dark mb-1" style="font-size: 16px">
                                             Nama project
