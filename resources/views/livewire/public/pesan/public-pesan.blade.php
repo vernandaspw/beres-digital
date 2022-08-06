@@ -35,12 +35,63 @@
                                     <b>Pilihan tambahan</b>
                                 </div>
                                 <div class="">
-                                    <label for="varian">Berapa hari?</label>
+                                    <label for="varian">Lama pengerjaan</label>
                                     <select class="form-control rounded-pill" id="varian">
                                         <option value="">5 hari</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary rounded-pill form-control mt-3">Simpan</button>
+                                <hr>
+                                <div class="">
+                                    <div class=""  style="font-weight: 600">Rinciran biaya</div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="">
+                                            Biaya dasar layanan
+                                        </div>
+                                        <div class="">
+                                            @uang(10000)
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="">
+                                        <div class="" style="font-weight: 600; font-size: 13px">Biaya pilihan tambahan</div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                Lama pengerjaan (5 Hari)
+                                            </div>
+                                            <div class="">
+                                                @uang(4000)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="">
+                                            Kode unik
+                                        </div>
+                                        <div class="">
+                                            @uang(536)
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="">
+                                            Tax 10%
+                                        </div>
+                                        <div class="">
+                                            @uang(1000)
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="">
+                                            <b>Total pembayaran</b>
+                                        </div>
+                                        <div class="">
+                                            <b>@uang(10000)</b>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit"
+                                    class="btn btn-primary rounded-pill form-control mt-3">Simpan</button>
                             </form>
                         </div>
                     </div>
@@ -51,7 +102,7 @@
 </div>
 
 <style>
-.card{
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
+    .card {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
 </style>
