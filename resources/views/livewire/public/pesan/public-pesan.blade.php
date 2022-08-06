@@ -91,7 +91,7 @@
                                 </div>
 
                                 <button type="submit"
-                                    class="btn btn-primary rounded-pill form-control mt-3">Simpan</button>
+                                    class="btn btn-primary rounded-pill form-control mt-3">Order project</button>
                             </form>
                         </div>
                     </div>
