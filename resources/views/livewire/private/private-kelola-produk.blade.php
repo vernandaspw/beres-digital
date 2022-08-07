@@ -37,7 +37,7 @@
                     <div class="card-body">
                         <form wire:submit.prevent='tambah' enctype="multipart/form-data">
                             <div class="">
-                                <img width="150px" height="150px" src="{{ $gambar != null ? $gambar->temporaryUrl() : '' }}">
+                                <img width="130px" height="130px" src="{{ $gambar != null ? $gambar->temporaryUrl() : '' }}">
                             </div>
                             <div class="">
 

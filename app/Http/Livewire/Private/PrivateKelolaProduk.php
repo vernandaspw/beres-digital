@@ -64,20 +64,18 @@ class PrivateKelolaProduk extends Component
         ]);
 
         try {
-            dd([
-                'gambar' => $this->gambar,
-                'nama' => $this->nama,
-                'slug' => Str::slug($this->nama, '-'),
-                'singkat' => $this->singkat,
-                'keterangan' => $this->keterangan,
-                'link' => $this->link,
-            ]);
+            // dd([
+            //     'gambar' => $this->gambar,
+            //     'nama' => $this->nama,
+            //     'slug' => Str::slug($this->nama, '-'),
+            //     'singkat' => $this->singkat,
+            //     'keterangan' => $this->keterangan,
+            //     'link' => $this->link,
+            // ]);
 
             if ($this->gambar) {
                 $gambar = $this->gambar->store('produk', 's3');
             }
-
-
 
             $tambah = Produk::create([
                 'gambar' => $gambar,
@@ -92,7 +90,7 @@ class PrivateKelolaProduk extends Component
 
             session()->flash('success', 'berhasil tambah data');
         } catch (\Exception $e) {
-            session()->flash('error', $e);
+            // session()->flash('error', $e);
         }
     }
 }
