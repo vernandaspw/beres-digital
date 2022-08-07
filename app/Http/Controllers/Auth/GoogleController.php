@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
 class GoogleController extends Controller
@@ -25,6 +26,7 @@ class GoogleController extends Controller
             if ($finduser) {
                 Auth::login($finduser);
                 auth()->user()->generateCode();
+                Session::put('tfa', auth()->user()->id);
                 return redirect()->intended('tfa');
             } else {
                 $newUser = User::updateOrCreate(['email' => $user->email], [
