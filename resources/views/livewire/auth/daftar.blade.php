@@ -60,11 +60,13 @@
                                 Atau lanjutkan dengan
                             </div>
                             <div class="mt-2 text-center">
+                                <a href="{{ route('auth.google') }}">
                                 <div class="p-2 border-1 rounded-circle border d-inline-flex">
-                                    <a href="{{ route('auth.google') }}">
+
                                         <img class="" width="30px" src="{{ asset('images/google.png') }}">
-                                    </a>
+
                                 </div>
+                            </a>
                             </div>
                         </div>
                         <div class="mt-3 text-center" style="font-size: 14px">
