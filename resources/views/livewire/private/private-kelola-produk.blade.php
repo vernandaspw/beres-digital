@@ -37,7 +37,10 @@
                     <div class="card-body">
                         <form wire:submit.prevent='tambah' enctype="multipart/form-data">
                             <div class="">
-                                <img width="200px" height="200px" src="{{ $gambar != null ? $gambar->temporaryUrl() : '' }}">
+                                <img width="150px" height="150px" src="{{ $gambar != null ? $gambar->temporaryUrl() : '' }}">
+                            </div>
+                            <div class="">
+
                                 <label for="gambar">gambar</label>
                                 {{-- @dd($gambar) --}}
                                 <input type="file" wire:model='gambar' id='gambar' class="form-control">
