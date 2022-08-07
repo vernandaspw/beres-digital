@@ -5,27 +5,27 @@ namespace App\Http\Livewire\Private;
 use App\Models\Produk;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
 use PhpParser\Node\Stmt\TryCatch;
 
 class PrivateKelolaProduk extends Component
 {
+    use WithFileUploads;
+
+    public $gambar;
+    public $nama, $singkat, $keterangan, $link, $urut, $istersedia = true;
+
     public $produk;
 
     public $tambah = false;
 
-
-    public $gambar, $nama, $singkat, $keterangan, $link, $urut, $istersedia;
 
     public function formtambah()
     {
         $this->tambah = true;
         $this->edit = false;
     }
-    public function formtutup()
-    {
-        $this->tambah = false;
-        $this->edit = false;
-    }
+
 
     public function resetNull()
     {
@@ -38,6 +38,14 @@ class PrivateKelolaProduk extends Component
         $this->istersedia = null;
     }
 
+    public function formtutup()
+    {
+        $this->tambah = false;
+        $this->edit = false;
+
+        $this->resetNull();
+    }
+
     public function render()
     {
         $this->produk = Produk::orderBy('urut', 'desc')->get();
@@ -48,18 +56,15 @@ class PrivateKelolaProduk extends Component
     public function tambah()
     {
         $this->validate([
-            'gambar' => 'nullable',
+            'gambar' => 'nullable|image|max:2038',
             'nama' => 'required|max:150|unique:produks,nama',
-            'slug' => '',
             'singkat' => 'required',
             'keterangan' => 'nullable',
             'link' => 'required|max:100',
-            'urut' => '',
-            'istersedia' => ''
         ]);
 
         try {
-            $tambah = Produk::create([
+            dd([
                 'gambar' => $this->gambar,
                 'nama' => $this->nama,
                 'slug' => Str::slug($this->nama, '-'),
@@ -68,7 +73,22 @@ class PrivateKelolaProduk extends Component
                 'link' => $this->link,
             ]);
 
-            $this->emit('resetNull');
+            if ($this->gambar) {
+                $gambar = $this->gambar->store('produk', 's3');
+            }
+
+
+
+            $tambah = Produk::create([
+                'gambar' => $gambar,
+                'nama' => $this->nama,
+                'slug' => Str::slug($this->nama, '-'),
+                'singkat' => $this->singkat,
+                'keterangan' => $this->keterangan,
+                'link' => $this->link,
+            ]);
+
+            $this->resetNull();
 
             session()->flash('success', 'berhasil tambah data');
         } catch (\Exception $e) {
