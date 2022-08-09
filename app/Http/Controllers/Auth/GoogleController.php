@@ -25,7 +25,7 @@ class GoogleController extends Controller
             $finduser = User::where('google_id', $user->id)->first();
             if ($finduser) {
                 Auth::login($finduser);
-                auth()->user()->generateCode();
+                // auth()->user()->generateCode();
                 Session::put('tfa', auth()->user()->id);
                 return redirect()->intended('tfa');
             } else {
@@ -37,7 +37,7 @@ class GoogleController extends Controller
                     'password' => null
                 ]);
                 Auth::login($newUser);
-                auth()->user()->generateCode();
+                // auth()->user()->generateCode();
                 return redirect()->intended('tfa');
             }
         } catch (\Exception $e) {
