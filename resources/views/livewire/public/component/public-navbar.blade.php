@@ -21,7 +21,11 @@
                             Produk
                         </a>
                         <ul class="dropdown-menu border-0 shadow-sm" style="{{ env('bgColor100') }}">
-                            <li><a class="dropdown-item text-dark text-decoration-none" href="https://qumanten.com"  target="_blank"  rel="noopener noreferrer">Qumanten</a></li>
+                            @forelse ($produk as $data)
+                            <li><a class="dropdown-item text-dark text-decoration-none" href="{{ $data->link }}"  target="_blank"  rel="noopener noreferrer">{{ $data->nama }}</a></li>
+                            @empty
+
+                            @endforelse
 
                             <li>
                                 <hr class="dropdown-divider">

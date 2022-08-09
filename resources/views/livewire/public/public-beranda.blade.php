@@ -135,27 +135,32 @@
             </div>
             <div class="container mt-4">
                 <div class="card-group">
+                    @forelse ($produk as $data)
                     <div class="col-lg-3 col-12 col-md-4 col-xl-3">
-                        <a href="https://qumanten.com"  target="_blank"  rel="noopener noreferrer" class="card produkcard text-dark text-decoration-none border-0 my-2 mx-2"
+                        <a href="{{ $data->link }}"  target="_blank"  rel="noopener noreferrer" class="card produkcard text-dark text-decoration-none border-0 my-2 mx-2"
                             style="border-radius: 15px; {{ env('bgColor400') }} ">
                             <div class="card-body p-3 text-white">
                                 <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
                                     <div class="me-2">
-                                        <div class=""><img src="{{ asset('images/logoberesdigital4.png') }}"
+                                        <div class=""><img src="{{ $data->gambar != null ? Storage::url($data->gambar) : asset('images/logoberesdigital4.png') }}"
                                                 width="50px" alt=""></div>
                                     </div>
                                     <div class="text-start d-flex align-items-center" style="font-size: 35px">
-                                        <h6><b>Qumanten</b></h6>
+                                        <h6><b>{{ $data->nama }}</b></h6>
                                     </div>
                                 </div>
                                 <div class="mt-3">
                                     <p class="text-start text-wrap" style="font-size: 14px">
-                                        Butuh undangan digital? lihat disini
+                                        {{ $data->singkat }}
                                     </p>
                                 </div>
                             </div>
                         </a>
                     </div>
+                    @empty
+
+                    @endforelse
+
 
                 </div>
             </div>

@@ -74,7 +74,9 @@ class PrivateKelolaProduk extends Component
             // ]);
 
             if ($this->gambar) {
-                $gambar = $this->gambar->store('produk', 's3');
+                $gambar = $this->gambar->store('image/produk');
+            }else {
+                $gambar = null;
             }
 
             $tambah = Produk::create([

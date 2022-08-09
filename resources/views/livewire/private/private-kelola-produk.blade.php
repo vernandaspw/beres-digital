@@ -51,7 +51,7 @@
 
                             </div>
                             <div class="mt-1">
-                                {{ $nama }}
+
                                 <label for="nama">Nama produk</label>
                                 <input wire:model='nama' type="text" id='nama' class="form-control"
                                     placeholder="Nama produk">
@@ -105,15 +105,25 @@
                     @forelse ($produk as $data)
                         <tr>
                             <th scope="row" class="text-center">
-                                <select class="form-control text-center" id="urut">
-                                    <option value="">1</option>
-                                </select>
+                                {{ $data->urut }}
                             </th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
+                            <td>
+                                <img src="{{ Storage::url($data->gambar) }}" width="50px"  height="50px" alt="">
+                            </td>
+                            <td>{{ $data->nama }}</td>
+                            <td>
+                                <a href="{{ $data->link }}" target="_blank" rel="noopener noreferrer">{{ $data->link }}</a>
+                            </td>
+                            <td>
+                                @if($data->istersedia)
+                                <button type="button" class="rounded-pill btn btn-success">Tersedia</button>
+                                @else
+                                <button type="button" class="rounded-pill btn btn-danger">Tidak tersedia</button>
+                                @endif
+                            </td>
+                            <td>
+                                <button type="button" class="rounded-pill btn btn-warning">Ubah</button>
+                            </td>
                         </tr>
                     @empty
                     @endforelse

@@ -45,9 +45,7 @@
                             <div class="mt-2 text-center">
                                 <a href="{{ route('auth.google') }}">
                                 <div class="p-2 border-1 rounded-circle border d-inline-flex">
-
                                         <img class="" width="30px" src="{{ asset('images/google.png') }}">
-
                                 </div>
                             </a>
                             </div>

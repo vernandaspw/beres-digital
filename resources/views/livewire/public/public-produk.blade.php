@@ -7,26 +7,27 @@
             <p>Cari produk yang kamu butuhkan dan mempermudah bisnis dan pekerjaan anda.</p>
         </div>
         <div class="mt-4 row row-cols-md-2">
+            @forelse ($produk as $data)
             <div class="col-md-6">
-                <a href="https://qumanten.com" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">
+                <a href="{{ $data->link }}" class="text-dark text-decoration-none" target="_blank" rel="noopener noreferrer">
                     <div class="card border-0 mb-3" style="border-radius: 15px">
                         <div class="row g-0">
                             <div class="col-4 justify-content-center d-flex align-items-center">
-                                <img width="140px" src="{{ asset('images/undraw_online_product.png') }}" class="img-fluid rounded-start" alt="...">
+                                <img width="140px" src="{{ $data->gambar != null ? Storage::url($data->gambar) : asset('images/undraw_online_product.png') }}" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-8 d-flex align-items-center">
                                 <div class="card-body">
-                                    <h5 class="card-title">Qumanten</h5>
-                                    <p class="card-text" style="font-size: 13px">Butuh undangan digital? lihat disini</p>
+                                    <h5 class="card-title">{{ $data->nama }}</h5>
+                                    <p class="card-text" style="font-size: 13px">{{ $data->singkat }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
+            @empty
 
-
-
+            @endforelse
         </div>
     </main>
 
