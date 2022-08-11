@@ -25,7 +25,7 @@ class GoogleController extends Controller
 
             $finduser = User::where('google_id', $user->id)->first();
             if ($finduser) {
-                Auth::login($finduser);
+                Auth::login($finduser, true);
                 // auth()->user()->generateCode();
                 Session::put('tfa', auth()->user()->id);
                 return redirect()->intended('tfa');
@@ -35,14 +35,14 @@ class GoogleController extends Controller
                     User::find($cekemail->id)->update([
                         'google_id' => $user->id,
                     ]);
-                    Auth::login($cekemail);
+                    Auth::login($cekemail, true);
                 } else {
                     $newUser = User::create([
                         'nama' => Str::limit($user->name, 35),
                         'google_id' => $user->id,
                         'email' => $user->email
                     ]);
-                    Auth::login($newUser);
+                    Auth::login($newUser, true);
                 }
 
                 // auth()->user()->generateCode();
