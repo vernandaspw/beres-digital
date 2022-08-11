@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nama',35);
-            $table->bigInteger('nohp')->nullable()->unsigned();
+            $table->string('nohp',16)->nullable()->unique();
             $table->enum('sex',['m','f'])->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->string('email')->unique();
@@ -25,6 +25,9 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->enum('role', ['customer', 'superadmin', 'admin', 'finance', 'operator']);
             $table->boolean('isaktif')->default(true);
+            $table->string('code', 65)->nullable();
+            $table->timestamp('code_expired')->nullable();
+            $table->timestamp('resend_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

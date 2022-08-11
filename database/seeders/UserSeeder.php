@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'nama' => 'admin',
-            'nohp' => '0899660741134',
+            'nohp' => '6289660741134',
             'sex' => 'm',
             'tgl_lahir' => '19990906',
             'email' => 'vernandaspw@gmail.com',

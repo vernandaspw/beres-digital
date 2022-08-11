@@ -17,7 +17,7 @@
                         <div class="mt-2">
                             <form wire:submit.prevent='masuk'>
                                 <div class="">
-                                    <input wire:model='email' required class="form-control rounded-pill" type="email" placeholder="masukan email">
+                                    <input wire:model='emailorwhatsapp' required class="form-control rounded-pill" type="text" placeholder="masukan email/whatsapp">
                                 </div>
                                 <div class="mt-2">
                                     <input wire:model='password' required class="form-control rounded-pill" type="password"

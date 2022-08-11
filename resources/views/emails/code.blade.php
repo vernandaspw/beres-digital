@@ -8,8 +8,7 @@
 </head>
 <body>
     <h3>Kode OTP : {{ $data['code'] }}</h3>
-
-    <p>Kode akan expired dalam 10 menit</p>
+    <p>Kode akan expired dalam 5 menit</p>
     <p>Terima kasih</p>
 </body>
 </html>

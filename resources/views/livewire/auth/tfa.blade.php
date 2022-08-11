@@ -8,15 +8,21 @@
 
                     <div class="card-body">
                         <form wire:submit.prevent='store'>
-                            <p class="text-center">We sent code to email :
-                                {{ substr(auth()->user()->email, 0, 5) . '******' . substr(auth()->user()->email, -2) }}
-                            </p>
-
+                            @if (session('otp') == 'email')
+                                <p class="text-center">We sent code to email :
+                                    {{ substr(auth()->user()->email, 0, 5) . '******' . substr(auth()->user()->email, -2) }}
+                                </p>
+                            @endif
+                            @if (session('otp') == 'wa')
+                                <p class="text-center">We sent code to wa :
+                                    +{{ substr(auth()->user()->nohp, 0, 5) . '******' . substr(auth()->user()->nohp, -2) }}
+                                </p>
+                            @endif
                             @if ($message = Session::get('success'))
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="alert alert-success alert-block">
-                                            <button type="button" class="close" data-dismiss="alert">×</button>
+
                                             <strong>{{ $message }}</strong>
                                         </div>
                                     </div>
@@ -27,7 +33,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="alert alert-danger alert-block">
-                                            <button type="button" class="close" data-dismiss="alert">×</button>
+
                                             <strong>{{ $message }}</strong>
                                         </div>
                                     </div>
@@ -48,18 +54,15 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="button" class="btn btn-link" wire:click='resend'>Resend
-                                        Code?</button>
-                                </div>
-                            </div>
 
-                            <div class="form-group row mb-0">
+
+                            <div class="form-group row mb-0 mt-2">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary me-1">
                                         Submit
                                     </button>
+                                    <button type="button" class="btn btn-link" wire:click='resend'>Resend
+                                        Code?</button>
 
                                 </div>
                             </div>
