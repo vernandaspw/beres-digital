@@ -29,11 +29,7 @@ class SendWaFonnte
             $curl,
             CURLOPT_HTTPHEADER,
             array(
-                // Production
-                // "Authorization: ai81UAzZcTXn4L9VGg9P",
-                
-                // testing
-                "Authorization: xz18njYQuXwhj8Dw668u"
+                "Authorization:". env('FONNTE_TOKEN'),
             )
         );
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
