@@ -18,14 +18,18 @@ class HasTFA
     public function handle(Request $request, Closure $next)
     {
         if (Session::has('tfa')) {
-            if (auth()->user()->role == 'customer') {
-                return redirect('dashboard');
+            // dd(auth()->check());
+            if (auth()->check()) {
+                if (auth()->user()->role == 'customer') {
+                    return redirect('dashboard');
+                }else {
+                    return redirect('admin');
+                }
             }else {
-                return redirect('admin');
+                session()->forget('tfa');
             }
-
+            
         }else {
-
             return $next($request);
         }
     }

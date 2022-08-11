@@ -10,6 +10,7 @@ class LogoutController extends Controller
     public function logout()
     {
         auth()->logout();
+        session()->forget('tfa');
         session()->invalidate();
         session()->regenerateToken();
         return redirect('/');

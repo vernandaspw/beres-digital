@@ -21,6 +21,7 @@ class GoogleController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
+            // dd($user);
 
             $finduser = User::where('google_id', $user->id)->first();
             if ($finduser) {
@@ -29,15 +30,23 @@ class GoogleController extends Controller
                 Session::put('tfa', auth()->user()->id);
                 return redirect()->intended('tfa');
             } else {
-                $newUser = User::updateOrCreate(['email' => $user->email], [
-                    'nama' => Str::limit($user->name,35),
-                    'email' => $user->email,
-                    'google_id' => $user->id,
-                    'role' => 'customer',
-                    'password' => null
-                ]);
-                Auth::login($newUser);
+                $cekemail = User::where('email', $user->email)->first();
+                if ($cekemail) {
+                    User::find($cekemail->id)->update([
+                        'google_id' => $user->id,
+                    ]);
+                    Auth::login($cekemail);
+                } else {
+                    $newUser = User::create([
+                        'nama' => Str::limit($user->name, 35),
+                        'google_id' => $user->id,
+                        'email' => $user->email
+                    ]);
+                    Auth::login($newUser);
+                }
+
                 // auth()->user()->generateCode();
+                Session::put('tfa', auth()->user()->id);
                 return redirect()->intended('tfa');
             }
         } catch (\Exception $e) {

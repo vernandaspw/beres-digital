@@ -20,10 +20,10 @@ return new class extends Migration
             $table->enum('sex',['m','f'])->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->string('email')->unique();
-            $table->string('google_id')->nullable();
+            $table->string('google_id',25)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->enum('role', ['customer', 'superadmin', 'admin', 'finance', 'operator']);
+            $table->enum('role', ['customer', 'superadmin', 'admin', 'finance', 'operator'])->default('customer');
             $table->boolean('isaktif')->default(true);
             $table->string('code', 65)->nullable();
             $table->timestamp('code_expired')->nullable();
