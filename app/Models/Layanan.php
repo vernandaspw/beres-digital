@@ -13,7 +13,7 @@ class Layanan extends Model
 
     public function layananjenis()
     {
-        return $this->belongsTo(layananjenis::class, 'layanan_jenis_id', 'id');
+        return $this->belongsTo(LayananJenis::class, 'layanan_jenis_id', 'id');
     }
 
     public function layananvarian()
