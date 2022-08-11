@@ -7,40 +7,42 @@
             <p>Temukan layanan desain yang kamu butuhkan</p>
         </div>
         <div class="mt-4 row row-cols-md-2">
-            <div class="col-md-6">
-                <a href="{{ url('layanan/jenis', 'jasa-desain') }}" class="text-dark text-decoration-none">
-                    <div class="card border-0 mb-3" style="border-radius: 15px">
-                        <div class=" d-flex align-items-center">
-                            <div class="justify-content-center d-flex align-items-center">
-                                <img width="140px" src="{{ asset('images/undraw_online_product.png') }}"
-                                    class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <div class="card-body">
-                                    <h5 class="card-title">Logo</h5>
-                                    <div class="card-text mt-1 mb-1" style="font-size: 14px">
-                                        Logo yang menarik
+            @foreach ($layanan as $data)
+                <div class="col-md-6">
+                    <a href="#" class="text-dark text-decoration-none">
+                        <div class="card border-0 mb-3" style="border-radius: 15px">
+                            <div class=" d-flex align-items-center">
+                                <div class="justify-content-center d-flex align-items-center">
+                                    <img width="140px" src="{{ $data->gambar != null ? Storage::url($data->gambar) : asset('images/undraw_online_product.png') }}"
+                                        class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $data->nama }}</h5>
+                                        <div class="card-text mt-1 mb-1" style="font-size: 14px">
+                                            {{ $data->singkat }}
+                                        </div>
+                                        <span style="font-size: 18px; font-weight: bold; {{ env('fontColor300') }}">@uang($data->harga)</span>
+
+
+                                        <div class="">
+                                            <a href="{{ url('pesan') }}"
+                                                class="btn px-3 btn-primary btn-sm mt-3 rounded-pill">
+                                                Pesan
+                                            </a>
+                                            <a href="{{ url('cara-pesan', []) }}"
+                                                class="btn btn-link btn-sm mt-3 rounded-pill">
+                                                cara pesan
+                                            </a>
+                                        </div>
+
                                     </div>
-                                    <span style="font-size: 18px; font-weight: bold; {{ env('fontColor300') }}">Rp
-                                        20.000</span>
-
-
-                                    <div class="">
-                                        <a href="{{ url('pesan') }}" class="btn px-3 btn-primary btn-sm mt-3 rounded-pill">
-                                            Pesan
-                                        </a>
-                                        <a href="{{ url('cara-pesan', []) }}"
-                                            class="btn btn-link btn-sm mt-3 rounded-pill">
-                                            cara pesan
-                                        </a>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            @endforeach
 
 
 

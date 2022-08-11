@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('slug',100);
             $table->string('nama',80)->unique();
-            $table->string('gambar',50)->nullable();
+            $table->string('gambar',70)->nullable();
             $table->string('singkat')->nullable();
             $table->longText('keterangan')->nullable();
             $table->integer('urut')->unsigned()->nullable();
