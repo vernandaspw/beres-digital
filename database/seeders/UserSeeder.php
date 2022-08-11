@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
                 'sex' => 'm',
                 'tgl_lahir' => null,
                 'email' => 'saputra12345doni@gmail.com',
-                'password' => Hash::make('1234@'),
+                'password' => null,
                 'role' => 'admin',
                 'isaktif' => true
             ]
