@@ -178,7 +178,7 @@
                 <div class="card-group">
                    @foreach ($layanan as $data)
                    <div class="col-lg-3 col-12 col-md-4 col-xl-3">
-                    <a href="#" class="card layanancard text-dark text-decoration-none border-0 my-2 mx-2"
+                    <a href="{{ url('layanan/jenis') }}" class="card layanancard text-dark text-decoration-none border-0 my-2 mx-2"
                         style="border-radius: 15px; {{ env('bgColor400') }} ">
                         <div class="card-body p-3 text-white">
                             <div class="mt-2 d-flex justify-content-start align-items-center align-content-center">
