@@ -13,7 +13,7 @@ use Livewire\Component;
 
 class PrivateKelolaLayananDetail extends Component
 {
-    public $data, $layananvarian=[], $layananvarian2=[], $layananvarian3=[], $layananvarian4=[], $layananvarian5=[];
+    public $data, $layananvarian = [], $layananvarian2 = [], $layananvarian3 = [], $layananvarian4 = [], $layananvarian5 = [];
 
     public $nama;
 
@@ -22,6 +22,7 @@ class PrivateKelolaLayananDetail extends Component
     public $namaVariasi;
 
     public $formTambahVarianItem = false, $VarianID;
+
     public $namaVarianItem, $hargaVarianItem;
 
     public function mount($id)
@@ -38,6 +39,14 @@ class PrivateKelolaLayananDetail extends Component
         $this->layananvarian4 = LayananVarianEmpat::with('items')->where('layanan_id', $this->data->id)->first();
         $this->layananvarian5 = LayananVarianLima::with('items')->where('layanan_id', $this->data->id)->first();
         return view('livewire.private.private-kelola-layanan-detail')->extends('layouts.app')->section('content');
+    }
+
+    public function tutup()
+    {
+        $this->formTambahVarianItem = false;
+
+        $this->namaVarianItem = null;
+        $this->hargaVarianItem = null;
     }
 
     public function formTambahVariasi()
@@ -65,13 +74,11 @@ class PrivateKelolaLayananDetail extends Component
     public function tambahVarianItem($VarianID)
     {
         LayananVarianItem::create([
-            'layanan_id' => $this->data->id,
             'layanan_varian_id' => $VarianID,
             'nama' => $this->namaVarianItem,
             'harga' => $this->hargaVarianItem,
         ]);
 
-        session()->flash('success', 'Berhasil tambah varian item baru');
+        session()->flash('success', 'Berhasil tambah pilihan item baru');
     }
-
 }

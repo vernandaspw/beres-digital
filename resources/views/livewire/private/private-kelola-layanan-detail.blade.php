@@ -1,7 +1,7 @@
 <div>
     <livewire:private.component.private-navbar />
 
-    <div class="container-fluid mt-3">
+    <div class="container-fluid mt-3 mb-5 pb-5">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin', []) }}">Dashboard</a></li>
@@ -43,6 +43,30 @@
             </form>
         </div>
         <hr>
+        @if ($formTambahVarianItem)
+            <h4>Tambah Pilihan Item</h4>
+            <form wire:submit.prevent="tambahVarianItem({{ $VarianID }})" class="">
+                <div class="">
+                    <input wire:model='namaVarianItem' type="text" id='namaVarianItem' class="form-control"
+                        placeholder="Nama pilihan">
+                    @error('namaVarianItem')
+                        <span class="error text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mt-1">
+                    <input wire:model='hargaVarianItem' type="number" id='hargaVarianItem' class="form-control"
+                        placeholder="Harga">
+                    @error('hargaVarianItem')
+                        <span class="error text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="">
+                    <button type="submit" class="btn mt-1 btn-primary">Simpan</button>
+                </div>
+            </form>
+            <button type="button" wire:click="tutup" class="btn mt-1 btn-secondary">Tutup</button>
+
+        @endif
         <div class="mt-2">
             <div class="table-responsive mt-2">
                 <table class="table table-sm table-striped  table-bordered">
@@ -76,43 +100,15 @@
                                                         tersedia</button>
                                                 @endif
                                             </li>
-
                                         @empty
                                         @endforelse
-
-
                                     </ul>
                                     @if ($formTambahVarianItem)
-                                    <form wire:submit.prevent="tambahVarianItem({{ $VarianID }})" class="">
-                                        <div class="">
-
-                                            <input wire:model='namaVarianItem' type="text"
-                                                id='namaVarianItem' class="form-control"
-                                                placeholder="Nama variasi layanan">
-                                            @error('namaVarianItem')
-                                                <span class="error text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="">
-                                            <input wire:model='hargaVarianItem' type="number"
-                                                id='hargaVarianItem' class="form-control"
-                                                placeholder="Nama variasi layanan">
-                                            @error('hargaVarianItem')
-                                                <span class="error text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="">
-                                            <button type="submit"
-                                                class="btn btn-primary">Simpan</button>
-                                        </div>
-                                    </form>
-                                    <button wire:click="formTambahVarianItem({{ $layananvarian->id }})"
-                                        class="btn btn-secondary">Tutup</button>
-                                @else
-                                    <button type="button" wire:click="formTambahVarianItem({{ $layananvarian->id }})"
-                                        class="btn btn-primary">Tambah</button>
-
-                                @endif
+                                    @else
+                                        <button type="button"
+                                            wire:click="formTambahVarianItem({{ $layananvarian->id }})"
+                                            class="btn btn-primary">Tambah</button>
+                                    @endif
                                 </td>
                                 <td>
                                     @if ($layananvarian->istersedia)
