@@ -5,6 +5,10 @@ namespace App\Http\Livewire\Public\Pesan;
 use App\Models\Layanan;
 use App\Models\LayananJenis;
 use App\Models\LayananVarian;
+use App\Models\LayananVarianDua;
+use App\Models\LayananVarianEmpat;
+use App\Models\LayananVarianLima;
+use App\Models\LayananVarianTiga;
 use App\Models\Setting;
 use App\Models\Transaksi;
 use Livewire\Component;
@@ -12,26 +16,30 @@ use Livewire\Component;
 class PublicPesan extends Component
 {
     public $layananjenis = [], $layanan = [];
-    public $layanan_varian1 = [];
+    public $layanan_varian = [], $layanan_varian2 = [], $layanan_varian3 = [],$layanan_varian4 = [], $layanan_varian5 = [];
 
     public $layanan_jenis_id, $layanan_id, $nama_project, $keterangan;
     public $layanan_varian_item_1;
 
-   
+
     public function render()
     {
         $this->layananjenis = LayananJenis::where('istersedia', true)->get();
         if ($this->layanan_jenis_id) {
             $this->layanan = Layanan::where('layanan_jenis_id', $this->layanan_jenis_id)->where('istersedia', true)->get();
             if ($this->layanan_id) {
-                $this->layanan_varian1 = LayananVarian::with('layananvarianitem')->where('layanan_id', $this->layanan_id)->where('istersedia', true)->first();
+                $this->layanan_varian = LayananVarian::with('items')->where('layanan_id', $this->layanan_id)->where('istersedia', true)->first();
+                $this->layanan_varian2 = LayananVarianDua::with('items')->where('layanan_id', $this->layanan_id)->where('istersedia', true)->first();
+                $this->layanan_varian3 = LayananVarianTiga::with('items')->where('layanan_id', $this->layanan_id)->where('istersedia', true)->first();
+                $this->layanan_varian4 = LayananVarianEmpat::with('items')->where('layanan_id', $this->layanan_id)->where('istersedia', true)->first();
+                $this->layanan_varian5 = LayananVarianLima::with('items')->where('layanan_id', $this->layanan_id)->where('istersedia', true)->first();
             }
         }
         return view('livewire.public.pesan.public-pesan')->extends('layouts.app')->section('content');
     }
 
     public function buat()
-    {      
+    {
         $this->validate([
             'layanan_jenis_id' => 'required',
             'layanan_id' => 'required',
@@ -52,7 +60,7 @@ class PublicPesan extends Component
 
 
         $harga_tambahan = $harga_layanan ;
-        
+
 
         Transaksi::create([
             'user_id' => auth()->user()->id,
@@ -63,10 +71,10 @@ class PublicPesan extends Component
             'keterangan' => $this->keterangan,
             'harga_layanan' => $harga_layanan,
             'harga_tambahan' => $harga_tambahan,
-            // 'subtotal_layanan' => 
-            // 'kode_unik' => 
-            // 'pajak' => 
-            // 'total_pembayaran' => 
+            // 'subtotal_layanan' =>
+            // 'kode_unik' =>
+            // 'pajak' =>
+            // 'total_pembayaran' =>
             'status' => 'pending',
             'status_bayar' => 'belum bayar'
         ]);

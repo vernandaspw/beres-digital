@@ -37,24 +37,30 @@
                                             <option value="">Pilih</option>
                                             @foreach ($layanan as $data)
                                                 <option value="{{ $data->id }}">{{ $data->nama }}
-                                                    (@uang($data->harga))</option>
+                                                    (@uang($data->harga))
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
 
-                                    @if($layanan_varian1)
-                                    <div class="mt-2">
-                                        <b>Pilihan tambahan {{ $layanan_varian1->id }}</b>
-                                    </div>
-                                    <div class="mt-1">
-                                        <label for="varian{{ $layanan_varian1->id }}">{{ $layanan_varian1->nama }}</label>
-                                        <select required wire:model='layanan_varian_item_1' class="form-control rounded-pill" id="varian{{ $layanan_varian1->id }}">
-                                            <option value="">Pilih</option>
-                                            @foreach ($layanan_varian1->layananvarianitem as $item)
-                                                <option value="{{ $item->id }}">{{ $item->nama }} (@uang($item->harga))</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    @if ($layanan_varian || $layanan_varian2 || $layanan_varian3 || $layanan_varian4 || $layanan_varian5)
+                                        <div class="mt-2">
+                                            <b>Pilihan tambahan {{ $layanan_varian->id }}</b>
+                                        </div>
+                                    @endif
+                                    @if ($layanan_varian)
+                                        <div class="mt-1">
+                                            <label
+                                                for="varian{{ $layanan_varian->id }}">{{ $layanan_varian1->nama }}</label>
+                                            <select required wire:model='layanan_varian_item_1'
+                                                class="form-control rounded-pill" id="varian{{ $layanan_varian1->id }}">
+                                                <option value="">Pilih</option>
+                                                @foreach ($layanan_varian->items as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nama }}
+                                                        (@uang($item->harga))</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     @endif
                                     <div class="mt-1">
                                         <label for="namaproject"><b>Nama project</b></label>
@@ -66,8 +72,8 @@
                                         <textarea wire:model='keterangan' id="keterangan" class="form-control" rows="5"
                                             placeholder="isi penjelasan singkat project"></textarea>
                                     </div>
-                                   
-                                  
+
+
 
                                     <div class="d-block d-md-none d-lg-none d-xl-none">
                                         <hr>
