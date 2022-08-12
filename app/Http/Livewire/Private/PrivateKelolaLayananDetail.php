@@ -4,18 +4,22 @@ namespace App\Http\Livewire\Private;
 
 use App\Models\Layanan;
 use App\Models\LayananVarian;
+use App\Models\LayananVarianDua;
+use App\Models\LayananVarianEmpat;
 use App\Models\LayananVarianItem;
+use App\Models\LayananVarianLima;
+use App\Models\LayananVarianTiga;
 use Livewire\Component;
 
 class PrivateKelolaLayananDetail extends Component
 {
-    public $data, $layananvarian;
+    public $data, $layananvarian=[], $layananvarian2=[], $layananvarian3=[], $layananvarian4=[], $layananvarian5=[];
 
     public $nama;
 
     public $formTambahVariasi = false;
 
-    public $namaVariasi, $keteranganVariasi;
+    public $namaVariasi;
 
     public $formTambahVarianItem = false, $VarianID;
     public $namaVarianItem, $hargaVarianItem;
@@ -23,13 +27,16 @@ class PrivateKelolaLayananDetail extends Component
     public function mount($id)
     {
         $this->data = Layanan::find($id);
-        
         $this->nama = $this->data->nama;
     }
 
     public function render()
     {
-        $this->layananvarian = LayananVarian::with('layananvarianitem')->where('layanan_id', $this->data->id)->orderBy('urut', 'desc')->get();
+        $this->layananvarian = LayananVarian::with('items')->where('layanan_id', $this->data->id)->first();
+        $this->layananvarian2 = LayananVarianDua::with('items')->where('layanan_id', $this->data->id)->first();
+        $this->layananvarian3 = LayananVarianTiga::with('items')->where('layanan_id', $this->data->id)->first();
+        $this->layananvarian4 = LayananVarianEmpat::with('items')->where('layanan_id', $this->data->id)->first();
+        $this->layananvarian5 = LayananVarianLima::with('items')->where('layanan_id', $this->data->id)->first();
         return view('livewire.private.private-kelola-layanan-detail')->extends('layouts.app')->section('content');
     }
 
@@ -43,9 +50,7 @@ class PrivateKelolaLayananDetail extends Component
         LayananVarian::create([
             'layanan_id' => $this->data->id,
             'nama' => $this->namaVariasi,
-            'keterangan' => $this->keteranganVariasi
         ]);
-
         session()->flash('success', 'Berhasil tambah varian baru');
     }
 

@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('layanan_varian_empats', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('layanan_id')->constrained('layanans')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('nama',100);
             $table->timestamps();
         });
     }

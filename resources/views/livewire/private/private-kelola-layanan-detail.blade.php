@@ -44,114 +44,106 @@
         </div>
         <hr>
         <div class="mt-2">
+            <div class="table-responsive mt-2">
+                <table class="table table-sm table-striped  table-bordered">
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col" style="width: 4%">No</th>
+                            <th scope="col">NAMA</th>
+                            <th scope="col">VARIAN ITEM</th>
+                            <th scope="col" style="width: 15%">STATUS</th>
+                        </tr>
+                    </thead>
 
-            <div class="mt-2">
-                <button wire:click='formTambahVariasi' class="btn btn-success" type="button">Tambah varian</button>
-                @if ($formTambahVariasi)
-                    <hr>
-                    <h3>Tambah Variasi</h3>
-                    <form wire:submit.prevent='tambahVariasi'>
-                        <div class="mt-1">
-                            <label for="namaVariasi">Nama Variasi</label>
-                            <input wire:model='namaVariasi' type="text" id='namaVariasi' class="form-control"
-                                placeholder="Nama variasi layanan">
-                            @error('namaVariasi')
-                                <span class="error text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="mt-1">
-                            <label for="keterangan">Keterangan</label>
-                            <textarea wire:model='keteranganVariasi' id="keterangan" rows="5" class="form-control"></textarea>
-                            @error('keterangan')
-                                <span class="error text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <button type="submit" class="btn mt-2 btn-primary form-control">Simpan</button>
-                    </form>
-                @endif
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-center">
+                                1
+                            </th>
+                            @if ($layananvarian)
+                                <td>{{ $layananvarian->nama }}</td>
+                                <td>
+                                    <ul>
+                                        @forelse ($layananvarian->items as $item)
+                                            <li>{{ $item->nama }} (@uang($item->harga))
+                                                <button class="btn btn-link">Edit</button>
+                                                @if ($item->istersedia)
+                                                    <button type="button"
+                                                        class="rounded-pill btn btn-sm btn-success">Tersedia</button>
+                                                @else
+                                                    <button type="button"
+                                                        class="rounded-pill btn btn-sm btn-danger">Tidak
+                                                        tersedia</button>
+                                                @endif
+                                            </li>
 
-                @if ($formTambahVarianItem)
-                <hr>
-                <h3>Tambah Varian Item</h3>
-                        <form wire:submit.prevent="tambahVarianItem({{ $VarianID }})">
-                            <div class="mt-1">
-                                <label for="namaVarianItem">Nama Varian Item</label>
-                                <input wire:model='namaVarianItem' type="text" id='namaVarianItem'
-                                    class="form-control" placeholder="Nama variasi layanan">
-                                @error('namaVarianItem')
-                                    <span class="error text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="mt-1">
-                                <label for="hargaVarianItem">Harga Varian Item</label>
-                                <input wire:model='hargaVarianItem' type="number" id='hargaVarianItem'
-                                    class="form-control" placeholder="Nama variasi layanan">
-                                @error('hargaVarianItem')
-                                    <span class="error text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="mt-1">
-                                <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
-                            </div>
-                        </form>
-                    </div>
-                @endif
-                <div class="table-responsive mt-2">
-                    <table class="table table-sm table-striped  table-bordered">
-                        <thead class="table-primary">
-                            <tr>
-                                <th scope="col" style="width: 4%">URUT</th>
-                                <th scope="col">NAMA</th>
-                                <th scope="col">VARIAN ITEM</th>
-                                <th scope="col" style="width: 15%">STATUS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($layananvarian as $varian)
-                                <tr>
-                                    <th scope="row" class="text-center">
-                                        {{ $varian->urut }}
-                                    </th>
-                                    <td>{{ $varian->nama }}</td>
-                                    <td>
-                                        <ul>
-                                            @forelse ($varian->layananvarianitem as $item)
-                                                <li>{{ $item->nama }} (@uang($item->harga))
-                                                    <button class="btn btn-link">Edit</button>
-                                                    @if ($item->istersedia)
-                                                        <button type="button"
-                                                            class="rounded-pill btn btn-sm btn-success">Tersedia</button>
-                                                    @else
-                                                        <button type="button"
-                                                            class="rounded-pill btn btn-sm btn-danger">Tidak
-                                                            tersedia</button>
-                                                    @endif
-                                                </li>
-                                            
-                                            @empty
-                                            @endforelse
-                                            <button wire:click="formTambahVarianItem({{ $varian->id }})"
-                                                class="btn btn-sm btn-primary">Tambah</button>
-                                        </ul>
+                                        @empty
+                                        @endforelse
 
-                                    </td>
-                                    <td>
-                                        @if ($varian->istersedia)
-                                            <button type="button"
-                                                class="rounded-pill btn btn-success">Tersedia</button>
-                                        @else
-                                            <button type="button" class="rounded-pill btn btn-danger">Tidak
-                                                tersedia</button>
-                                        @endif
-                                    </td>
-                                </tr>
-                            @empty
-                            @endforelse
 
-                        </tbody>
-                    </table>
-                </div>
+                                    </ul>
+                                    @if ($formTambahVarianItem)
+                                    <form wire:submit.prevent="tambahVarianItem({{ $VarianID }})" class="">
+                                        <div class="">
+
+                                            <input wire:model='namaVarianItem' type="text"
+                                                id='namaVarianItem' class="form-control"
+                                                placeholder="Nama variasi layanan">
+                                            @error('namaVarianItem')
+                                                <span class="error text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="">
+                                            <input wire:model='hargaVarianItem' type="number"
+                                                id='hargaVarianItem' class="form-control"
+                                                placeholder="Nama variasi layanan">
+                                            @error('hargaVarianItem')
+                                                <span class="error text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="">
+                                            <button type="submit"
+                                                class="btn btn-primary">Simpan</button>
+                                        </div>
+                                    </form>
+                                    <button wire:click="formTambahVarianItem({{ $layananvarian->id }})"
+                                        class="btn btn-secondary">Tutup</button>
+                                @else
+                                    <button type="button" wire:click="formTambahVarianItem({{ $layananvarian->id }})"
+                                        class="btn btn-primary">Tambah</button>
+
+                                @endif
+                                </td>
+                                <td>
+                                    @if ($layananvarian->istersedia)
+                                        <button type="button" class="rounded-pill btn btn-success">Tersedia</button>
+                                    @else
+                                        <button type="button" class="rounded-pill btn btn-danger">Tidak
+                                            tersedia</button>
+                                    @endif
+                                </td>
+                            @else
+                                <td colspan="3">
+                                    <form wire:submit.prevent='tambahVariasi' class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <input wire:model='namaVariasi' type="text" id='namaVariasi'
+                                                class="form-control" placeholder="Nama variasi layanan">
+                                            @error('namaVariasi')
+                                                <span class="error text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="">
+                                            <button type="submit" class="btn  btn-primary">Buat</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            @endif
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 </div>

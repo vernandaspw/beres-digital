@@ -11,7 +11,7 @@ class LayananVarian extends Model
     protected $guarded = ['id'];
 
 
-    public function layananvarianitem()
+    public function items()
     {
         return $this->hasMany(LayananVarianItem::class, 'layanan_varian_id', 'id');
     }

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('layanan_varian_id')->constrained('layanan_varians')->onUpdate('cascade')->onDelete('cascade');
             $table->string('nama',100);
             $table->decimal('harga',19,2)->default(0);
-            $table->integer('urut')->default(0);
             $table->boolean('istersedia')->default(true);
             $table->timestamps();
         });

@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('layanan_varian_item_tigas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('layanan_varian_tiga_id')->constrained('layanan_varian_tigas')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('nama',100);
+            $table->decimal('harga',19,2)->default(0);
+            $table->boolean('istersedia')->default(true);
             $table->timestamps();
         });
     }

@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('no_transaksi',18)->unique();
             $table->foreignId('layanan_jenis_id')->nullable()->constrained('layanan_jenis')->onUpdate('cascade')->onDelete('set null');
             $table->foreignId('layanan_id')->nullable()->constrained('layanans')->onUpdate('cascade')->onDelete('set null');
+            $table->foreignId('layanan_varian_items_id')->nullable()->constrained('layanan_varian_items')->onUpdate('cascade')->onDelete('set null');
+            $table->foreignId('layanan_varian_item_duas_id')->nullable()->constrained('layanan_varian_item_duas')->onUpdate('cascade')->onDelete('set null');
+            $table->foreignId('layanan_varian_item_tigas_id')->nullable()->constrained('layanan_varian_item_tigas')->onUpdate('cascade')->onDelete('set null');
+            $table->foreignId('layanan_varian_item_empats_id')->nullable()->constrained('layanan_varian_item_empats')->onUpdate('cascade')->onDelete('set null');
+            $table->foreignId('layanan_varian_item_limas_id')->nullable()->constrained('layanan_varian_item_limas')->onUpdate('cascade')->onDelete('set null');
             $table->string('nama_project',100);
             $table->longText('keterangan')->nullable();
             $table->decimal('harga_layanan', 19,2)->default(0);
