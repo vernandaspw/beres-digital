@@ -144,7 +144,8 @@
                                 @endif
                             </td>
                             <td>
-                                <button type="button" class="rounded-pill btn btn-warning">Ubah</button>
+                                {{-- <button type="button" class="rounded-pill btn btn-warning">Ubah</button> --}}
+                                <a href="{{ url('admin/kelola-layanan/detail', $data->id) }}" class="rounded-pill btn btn-warning">Lihat</a>
                             </td>
                         </tr>
                     @empty

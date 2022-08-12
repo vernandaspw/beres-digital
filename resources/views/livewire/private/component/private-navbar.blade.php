@@ -21,11 +21,11 @@
 
                     @if (auth()->user()->role != 'finance')
                         <li class="nav-item">
-                            <a class="nav-link @if (Request::is('kelola-produk')) active @endif" aria-current="page"
+                            <a class="nav-link @if (Request::is('admin/kelola-produk*')) active @endif" aria-current="page"
                                 href="{{ url('admin/kelola-produk') }}">Kelola Produk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="{{ url('admin/kelola-layanan') }}">Kelola
+                            <a class="nav-link @if (Request::is('admin/kelola-layanan*')) active @endif" aria-current="page" href="{{ url('admin/kelola-layanan') }}">Kelola
                                 Layanan</a>
                         </li>
                         <li class="nav-item">

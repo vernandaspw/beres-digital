@@ -18,6 +18,6 @@ class Layanan extends Model
 
     public function layananvarian()
     {
-        return $this->hasMany(LayananVarian::class, 'layanan_id', 'id');
+        return $this->belongsTo(LayananVarian::class, 'layanan_id', 'id');
     }
 }

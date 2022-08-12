@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('no_transaksi',18)->unique();
             $table->foreignId('layanan_jenis_id')->nullable()->constrained('layanan_jenis')->onUpdate('cascade')->onDelete('set null');
             $table->foreignId('layanan_id')->nullable()->constrained('layanans')->onUpdate('cascade')->onDelete('set null');

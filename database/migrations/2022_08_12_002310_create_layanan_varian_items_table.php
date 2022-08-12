@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('layanan_varian_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('layanan_id')->constrained('layanans')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('layanan_varian_id')->constrained('layanan_varians')->onUpdate('cascade')->onDelete('cascade');
             $table->string('nama',100);
             $table->decimal('harga',19,2)->default(0);
             $table->integer('urut')->default(0);
-            $table->boolean('istersedia')->default(0);
+            $table->boolean('istersedia')->default(true);
             $table->timestamps();
         });
     }
