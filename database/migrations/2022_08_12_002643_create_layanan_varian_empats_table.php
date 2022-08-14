@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('layanan_id')->constrained('layanans')->onUpdate('cascade')->onDelete('cascade');
             $table->string('nama',100);
+            $table->boolean('istersedia')->default(true);
             $table->timestamps();
         });
     }

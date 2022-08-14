@@ -12,6 +12,6 @@ class LayananVarianTiga extends Model
 
     public function items()
     {
-        return $this->hasMany(LayananVarianItemTiga::class, 'layanan_varian_id', 'id');
+        return $this->hasMany(LayananVarianItemTiga::class, 'layanan_varian_tiga_id', 'id');
     }
 }

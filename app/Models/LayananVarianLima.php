@@ -12,6 +12,6 @@ class LayananVarianLima extends Model
 
     public function items()
     {
-        return $this->hasMany(LayananVarianItemLima::class, 'layanan_varian_id', 'id');
+        return $this->hasMany(LayananVarianItemLima::class, 'layanan_varian_lima_id', 'id');
     }
 }

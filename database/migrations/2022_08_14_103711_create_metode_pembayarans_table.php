@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('layanan_varian_limas', function (Blueprint $table) {
+        Schema::create('metode_pembayarans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('layanan_id')->constrained('layanans')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('nama',100);
+            $table->enum('metode',['automatis', 'manual']);
+            $table->string('nama')->nullable();
+            $table->decimal('fee', 19,2)->default(0);
             $table->boolean('istersedia')->default(true);
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layanan_varian_limas');
+        Schema::dropIfExists('metode_pembayarans');
     }
 };

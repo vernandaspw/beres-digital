@@ -25,7 +25,8 @@
                                 href="{{ url('admin/kelola-produk') }}">Kelola Produk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if (Request::is('admin/kelola-layanan*')) active @endif" aria-current="page" href="{{ url('admin/kelola-layanan') }}">Kelola
+                            <a class="nav-link @if (Request::is('admin/kelola-layanan*')) active @endif" aria-current="page"
+                                href="{{ url('admin/kelola-layanan') }}">Kelola
                                 Layanan</a>
                         </li>
                         <li class="nav-item">
@@ -34,11 +35,29 @@
                     @endif
 
                     @if (auth()->user()->role == 'superadmin')
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ url('setting') }}">Setting</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link @if (Request::is('produk*')) active @endif dropdown-toggle"
+                                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Lainnya
+                            </a>
+                            <ul class="dropdown-menu border-0 shadow-sm" style="{{ env('bgColor100') }}">
+                                <li>
+                                    <a class="dropdown-item @if (Request::is('admin/setting*')) active @endif"
+                                        href="{{ url('admin/setting', []) }}">Setting</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item @if (Request::is('admin/metode-pembayaran*')) active @endif"
+                                        href="{{ url('admin/metode-pembayaran', []) }}">Metode pembayaran</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item @if (Request::is('admin/data-rekening*')) active @endif"
+                                        href="{{ url('admin/data-rekening', []) }}">Data rekening</a>
+                                </li>
+                            </ul>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ url('kelola-akun') }}">Kelola Akun</a>
+                            <a class="nav-link" aria-current="page" href="{{ url('admin/kelola-akun') }}">Kelola Akun</a>
                         </li>
                     @endif
                     {{-- <li class="nav-item dropdown">

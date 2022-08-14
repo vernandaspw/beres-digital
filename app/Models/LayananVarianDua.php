@@ -12,6 +12,6 @@ class LayananVarianDua extends Model
 
     public function items()
     {
-        return $this->hasMany(LayananVarianItemDua::class, 'layanan_varian_id', 'id');
+        return $this->hasMany(LayananVarianItemDua::class, 'layanan_varian_dua_id', 'id');
     }
 }

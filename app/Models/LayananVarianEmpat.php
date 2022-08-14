@@ -12,6 +12,6 @@ class LayananVarianEmpat extends Model
 
     public function items()
     {
-        return $this->hasMany(LayananVarianItemEmpat::class, 'layanan_varian_id', 'id');
+        return $this->hasMany(LayananVarianItemEmpat::class, 'layanan_varian_empat_id', 'id');
     }
 }

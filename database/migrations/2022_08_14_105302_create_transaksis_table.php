@@ -30,8 +30,11 @@ return new class extends Migration
             $table->decimal('harga_tambahan', 19,2)->default(0);
             $table->decimal('subtotal_layanan', 19,2)->default(0);
             $table->decimal('kode_unik', 6,2)->default(0);
+            $table->decimal('fee', 19,2)->default(0);
+            $table->decimal('pendapatan',19,2)->default(0);
             $table->decimal('pajak',19,2)->default(0);
             $table->decimal('total_pembayaran')->default(0);
+            $table->foreignId('metode_pembayaran_id')->constrained('metode_pembayarans')->onUpdate('cascade')->onDelete('cascade');
             $table->enum('status',['pending', 'approve', 'pay awal', 'pay awal true', 'mulai pengerjaan', 'selesai dikerjakan', 'review', 'revisi', 'pay akhir', 'pay akhir true', 'penyerahan', 'selesai', 'batal', 'tolak'])->default('pending');
             $table->enum('status_bayar',['belum bayar', 'dp', 'lunas'])->default('belum bayar');
             $table->timestamps();

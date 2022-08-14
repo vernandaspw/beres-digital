@@ -45,19 +45,84 @@
 
                                     @if ($layanan_varian || $layanan_varian2 || $layanan_varian3 || $layanan_varian4 || $layanan_varian5)
                                         <div class="mt-2">
-                                            <b>Pilihan tambahan {{ $layanan_varian->id }}</b>
+                                            <b>Pilihan tambahan</b>
                                         </div>
                                     @endif
                                     @if ($layanan_varian)
                                         <div class="mt-1">
                                             <label
-                                                for="varian{{ $layanan_varian->id }}">{{ $layanan_varian1->nama }}</label>
+                                                for="varian{{ $layanan_varian->id }}">{{ $layanan_varian->nama }}</label>
                                             <select required wire:model='layanan_varian_item_1'
-                                                class="form-control rounded-pill" id="varian{{ $layanan_varian1->id }}">
+                                                class="form-control rounded-pill" id="varian{{ $layanan_varian->id }}">
                                                 <option value="">Pilih</option>
                                                 @foreach ($layanan_varian->items as $item)
                                                     <option value="{{ $item->id }}">{{ $item->nama }}
-                                                        (@uang($item->harga))</option>
+                                                        (@uang($item->harga))
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    @endif
+                                    @if ($layanan_varian2)
+                                        <div class="mt-1">
+                                            <label
+                                                for="varian{{ $layanan_varian2->id }}">{{ $layanan_varian2->nama }}</label>
+                                            <select required wire:model='layanan_varian_item_2'
+                                                class="form-control rounded-pill"
+                                                id="varian{{ $layanan_varian2->id }}">
+                                                <option value="">Pilih</option>
+                                                @foreach ($layanan_varian2->items as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nama }}
+                                                        (@uang($item->harga))
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    @endif
+                                    @if ($layanan_varian3)
+                                        <div class="mt-1">
+                                            <label
+                                                for="varian{{ $layanan_varian3->id }}">{{ $layanan_varian3->nama }}</label>
+                                            <select required wire:model='layanan_varian_item_3'
+                                                class="form-control rounded-pill"
+                                                id="varian{{ $layanan_varian3->id }}">
+                                                <option value="">Pilih</option>
+                                                @foreach ($layanan_varian3->items as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nama }}
+                                                        (@uang($item->harga))
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    @endif
+                                    @if ($layanan_varian4)
+                                        <div class="mt-1">
+                                            <label
+                                                for="varian{{ $layanan_varian4->id }}">{{ $layanan_varian4->nama }}</label>
+                                            <select required wire:model='layanan_varian_item_4'
+                                                class="form-control rounded-pill"
+                                                id="varian{{ $layanan_varian4->id }}">
+                                                <option value="">Pilih</option>
+                                                @foreach ($layanan_varian4->items as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nama }}
+                                                        (@uang($item->harga))
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    @endif
+                                    @if ($layanan_varian5)
+                                        <div class="mt-1">
+                                            <label
+                                                for="varian{{ $layanan_varian5->id }}">{{ $layanan_varian5->nama }}</label>
+                                            <select required wire:model='layanan_varian_item_5'
+                                                class="form-control rounded-pill"
+                                                id="varian{{ $layanan_varian5->id }}">
+                                                <option value="">Pilih</option>
+                                                @foreach ($layanan_varian5->items as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nama }}
+                                                        (@uang($item->harga))
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -74,6 +139,18 @@
                                     </div>
 
 
+                                    <div class="mt-1">
+                                        <label for="metode_pembayaran"><b>Metode pembayaran</b></label>
+                                        <select wire:model='metode_pembayaran_id' class="form-control rounded-pill"
+                                            id="metode_pembayaran">
+                                            <option value="">Pilih</option>
+                                            @foreach ($metode_pembayaran as $data)
+                                                <option value="{{ $data->id }}">{{ $data->metode }} -
+                                                    {{ $data->nama }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
                                     <div class="d-block d-md-none d-lg-none d-xl-none">
                                         <hr>
@@ -83,38 +160,50 @@
                                                 Biaya dasar layanan
                                             </div>
                                             <div class="">
-                                                @uang(10000)
+                                                @uang($harga_layanan)
                                             </div>
                                         </div>
-                                        <br>
-                                        <div class="">
-                                            <div class="" style="font-weight: 600; font-size: 13px">Biaya
-                                                pilihan
-                                                tambahan</div>
-                                            <div class="d-flex justify-content-between">
-                                                <div class="">
-                                                    Lama pengerjaan (5 Hari)
-                                                </div>
-                                                <div class="">
-                                                    @uang(4000)
-                                                </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                Biaya pilihan tambahan
+                                            </div>
+                                            <div class="">
+                                                @uang($harga_tambahan)
                                             </div>
                                         </div>
+
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                <b>Subtotal biaya layanan</b>
+                                            </div>
+                                            <div class="">
+                                                <b>@uang($subtotal_layanan)</b>
+                                            </div>
+                                        </div>
+
                                         <br>
                                         <div class="d-flex justify-content-between">
                                             <div class="">
                                                 Kode unik
                                             </div>
                                             <div class="">
-                                                @uang(536)
+                                                @uang($kode_unik)
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <div class="">
-                                                Tax 10%
+                                                Fee
                                             </div>
                                             <div class="">
-                                                @uang(1000)
+                                                @uang($fee)
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                Tax {{ $setting->pajak }} %
+                                            </div>
+                                            <div class="">
+                                                @uang($this->total_pajak)
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between">
@@ -122,7 +211,7 @@
                                                 <b>Total pembayaran</b>
                                             </div>
                                             <div class="">
-                                                <b>@uang(10000)</b>
+                                                <b>@uang($total_pembayaran)</b>
                                             </div>
                                         </div>
 
@@ -141,55 +230,71 @@
                 <div class="col-md-6">
                     <div class="d-none d-md-block d-lg-block d-xl-block card border-0" style="border-radius: 15px">
                         <div class="card-body">
-                            <div class="" style="font-weight: 600">Rinciran biaya</div>
-                            <div class="d-flex justify-content-between">
-                                <div class="">
-                                    Biaya dasar layanan
-                                </div>
-                                <div class="">
-                                    @uang(10000)
-                                </div>
-                            </div>
-                            <br>
-                            <div class="">
-                                <div class="" style="font-weight: 600; font-size: 13px">Biaya pilihan
-                                    tambahan</div>
-                                <div class="d-flex justify-content-between">
-                                    <div class="">
-                                        Lama pengerjaan (5 Hari)
-                                    </div>
-                                    <div class="">
-                                        @uang(4000)
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="d-flex justify-content-between">
-                                <div class="">
-                                    Kode unik
-                                </div>
-                                <div class="">
-                                    @uang(536)
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <div class="">
-                                    Tax 10%
-                                </div>
-                                <div class="">
-                                    @uang(1000)
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <div class="">
-                                    <b>Total pembayaran</b>
-                                </div>
-                                <div class="">
-                                    <b>@uang(10000)</b>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary rounded-pill form-control mt-3">Order
-                                project</button>
+
+                                        <div class="" style="font-weight: 600">Rinciran biaya</div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                Biaya dasar layanan
+                                            </div>
+                                            <div class="">
+                                                @uang($harga_layanan)
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                Biaya pilihan tambahan
+                                            </div>
+                                            <div class="">
+                                                @uang($harga_tambahan)
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                <b>Subtotal biaya layanan</b>
+                                            </div>
+                                            <div class="">
+                                                <b>@uang($subtotal_layanan)</b>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                Kode unik
+                                            </div>
+                                            <div class="">
+                                                @uang($kode_unik)
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                Fee
+                                            </div>
+                                            <div class="">
+                                                @uang($fee)
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                Tax {{ $setting->pajak }} %
+                                            </div>
+                                            <div class="">
+                                                @uang($this->total_pajak)
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="">
+                                                <b>Total pembayaran</b>
+                                            </div>
+                                            <div class="">
+                                                <b>@uang($total_pembayaran)</b>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit"
+                                            class="btn btn-primary rounded-pill form-control mt-3">Order
+                                            project</button>
                         </div>
                     </div>
                 </div>
