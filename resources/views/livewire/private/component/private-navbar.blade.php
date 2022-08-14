@@ -30,7 +30,7 @@
                                 Layanan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ url('portofolio') }}">Kelola Portofolio</a>
+                            <a class="nav-link @if (Request::is('admin/kelola-portofolio*')) active @endif" aria-current="page" href="{{ url('admin/kelola-portofolio') }}">Kelola Portofolio</a>
                         </li>
                     @endif
 

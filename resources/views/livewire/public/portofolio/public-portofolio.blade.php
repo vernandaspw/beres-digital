@@ -16,51 +16,76 @@
                             data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
                             aria-selected="true">Semua</button>
                     </li>
-                    <li class="nav-item m-1" role="presentation">
-                        <button class="nav-link rounded-pill" id="pills-profile-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-profile" type="button" role="tab"
-                            aria-controls="pills-profile" aria-selected="false">Website</button>
-                    </li>
-                    <li class="nav-item m-1" role="presentation">
-                        <button class="nav-link rounded-pill" id="pills-profile-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-profile" type="button" role="tab"
-                            aria-controls="pills-profile" aria-selected="false">Website</button>
-                    </li>
-                    <li class="nav-item m-1" role="presentation">
-                        <button class="nav-link rounded-pill" id="pills-profile-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-profile" type="button" role="tab"
-                            aria-controls="pills-profile" aria-selected="false">Website</button>
-                    </li>
+                    @foreach ($layanan as $data)
+                        <li class="nav-item m-1" role="presentation">
+                            <button class="nav-link rounded-pill" id="pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#{{ $data->slug }}" type="button" role="tab"
+                                aria-controls="{{ $data->slug }}" aria-selected="false">{{ $data->nama }}</button>
+                        </li>
+                    @endforeach
+
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                         aria-labelledby="pills-home-tab" tabindex="0">
                         <div class="card-group">
-                            <div class="col-lg-3 col-12 col-md-4 col-xl-3">
-                                <a href="{{ url('portofolio', 'nama-project') }}"
-                                    class="card portofoliohover text-dark text-decoration-none border-0 my-2 mx-2"
-                                    style="border-radius: 15px; ">
-                                    <img class="card-img-top" height="170px" src="{{ asset('React.jpg') }}"
-                                        alt="" style="border-radius: 15px;">
-                                    <div class="card-body">
-                                        <div
-                                            class=""style="font-weight: lighter; font-size: 13px; {{ env('fontColor300') }}">
-                                            Jasa buat website | landing page
+                            @foreach ($porto as $data)
+                                <div class="col-lg-3 col-12 col-md-4 col-xl-3">
+                                    <a href="{{ url('portofolio', $data->slug) }}"
+                                        class="card portofoliohover text-dark text-decoration-none border-0 my-2 mx-2"
+                                        style="border-radius: 15px; ">
+                                        <img class="card-img-top" height="170px" src="{{ asset('React.jpg') }}"
+                                            alt="" style="border-radius: 15px;">
+                                        <div class="card-body">
+                                            <div
+                                                class=""style="font-weight: lighter; font-size: 13px; {{ env('fontColor300') }}">
+                                                {{ $data->layananjenis->nama }} | {{ $data->layanan->nama }}
+                                            </div>
+                                            <div class="text-dark mb-1" style="font-size: 16px">
+                                                {{ $data->nama }}
+                                            </div>
+                                            <p class="" style="font-weight: lighter; font-size: 13px">
+                                                {{ Str::substr($data->tentang, 1, 100) }}
+                                            </p>
                                         </div>
-                                        <div class="text-dark mb-1" style="font-size: 16px">
-                                            Nama project
-                                        </div>
-                                        <p class="" style="font-weight: lighter; font-size: 13px">Some quick
-                                            example text to build on the card title and make up the bulk of the card's
-                                            content.</p>
-                                    </div>
-                                </a>
-                            </div>
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
+                        <button type="button" wire:click='lanjut' class="btn form-control btn-secondary rounded-pill">Lanjut</button>
                     </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-                        aria-labelledby="pills-profile-tab" tabindex="0">...</div>
+                    @foreach ($layanan as $data)
+                        <div class="tab-pane fade" id="{{ $data->slug }}" role="tabpanel"
+                            aria-labelledby="{{ $data->slug }}-tab" tabindex="0">
+                            <div class="card-group">
+                            @foreach ($porto->where('layanan_id', $data->id)->take($take) as $data2)
+                                <div class="col-lg-3 col-12 col-md-4 col-xl-3">
+                                    <a href="{{ url('portofolio', $data2->slug) }}"
+                                        class="card portofoliohover text-dark text-decoration-none border-0 my-2 mx-2"
+                                        style="border-radius: 15px; ">
+                                        <img class="card-img-top" height="170px" src="{{ asset('React.jpg') }}"
+                                            alt="" style="border-radius: 15px;">
+                                        <div class="card-body">
+                                            <div
+                                                class=""style="font-weight: lighter; font-size: 13px; {{ env('fontColor300') }}">
+                                                {{ $data2->layananjenis->nama }} | {{ $data2->layanan->nama }}
+                                            </div>
+                                            <div class="text-dark mb-1" style="font-size: 16px">
+                                                {{ $data2->nama }}
+                                            </div>
+                                            <p class="" style="font-weight: lighter; font-size: 13px">
+                                                {{ Str::substr($data2->tentang, 1, 100) }}
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                            </div>
+                            <button type="button" wire:click='lanjut' class="btn form-control btn-secondary rounded-pill">Lanjut</button>
+                        </div>
+                    @endforeach
                 </div>
+
             </div>
         </section>
     </main>

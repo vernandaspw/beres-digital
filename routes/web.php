@@ -11,6 +11,7 @@ use App\Http\Livewire\Private\PrivateKelolaAkun;
 use App\Http\Livewire\Private\PrivateKelolaLayanan;
 use App\Http\Livewire\Private\PrivateKelolaLayananDetail;
 use App\Http\Livewire\Private\PrivateKelolaLayananJenis;
+use App\Http\Livewire\Private\PrivateKelolaPortofolio;
 use App\Http\Livewire\Private\PrivateKelolaProduk;
 use App\Http\Livewire\Private\PrivateTransaksi;
 use App\Http\Livewire\Public\Layanan\PublicLayananDetail;
@@ -95,6 +96,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('admin/kelola-layanan', PrivateKelolaLayanan::class);
             Route::get('admin/kelola-layanan/detail/{id}', PrivateKelolaLayananDetail::class);
             Route::get('admin/kelola-layanan/jenis', PrivateKelolaLayananJenis::class);
+            Route::get('admin/kelola-portofolio', PrivateKelolaPortofolio::class);
 
         });
     });
