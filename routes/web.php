@@ -12,6 +12,7 @@ use App\Http\Livewire\Private\PrivateKelolaLayanan;
 use App\Http\Livewire\Private\PrivateKelolaLayananDetail;
 use App\Http\Livewire\Private\PrivateKelolaLayananJenis;
 use App\Http\Livewire\Private\PrivateKelolaProduk;
+use App\Http\Livewire\Private\PrivateTransaksi;
 use App\Http\Livewire\Public\Layanan\PublicLayananDetail;
 use App\Http\Livewire\Public\Layanan\PublicLayananJenis;
 use App\Http\Livewire\Public\Layanan\PublicLayananJenisDetail;
@@ -88,6 +89,7 @@ Route::middleware(['auth'])->group(function () {
         Route::middleware(['isnotcustomer'])->group(function () {
             Route::get('admin', PrivateDashboard::class);
 
+            Route::get('admin/kelola-project', PrivateTransaksi::class);
             Route::get('admin/kelola-akun', PrivateKelolaAkun::class);
             Route::get('admin/kelola-produk', PrivateKelolaProduk::class);
             Route::get('admin/kelola-layanan', PrivateKelolaLayanan::class);

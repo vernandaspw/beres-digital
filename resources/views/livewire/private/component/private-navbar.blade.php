@@ -16,7 +16,7 @@
                         <a class="nav-link " aria-current="page" href="{{ url('pembayaran') }}">Pembayaran</a>
                     </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{{ url('project') }}">Project</a>
+                        <a class="nav-link @if (Request::is('admin/kelola-project*')) active @endif" aria-current="page" href="{{ url('admin/kelola-project') }}">Project</a>
                     </li>
 
                     @if (auth()->user()->role != 'finance')
