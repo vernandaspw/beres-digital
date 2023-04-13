@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('transaksi_logs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaksi_id')->constrained('transaksis')->onUpdate('cascade')->onDelete('cascade');
-            $table->enum('status',['pending', 'approve', 'pay awal', 'pay awal true', 'mulai pengerjaan', 'selesai dikerjakan', 'review', 'revisi', 'pay akhir', 'pay akhir true', 'penyerahan', 'selesai', 'batal', 'tolak'])->default('pending');
+            $table->enum('status',['pending', 'approve', 'pay awal', 'pay awal konfirm', 'pay awal true', 'pengerjaan', 'selesai dikerjakan', 'review', 'revisi', 'pay akhir', 'pay akhir konfirm', 'pay akhir true', 'penyerahan', 'selesai', 'batal', 'tolak'])->default('pending');
             $table->longText('keterangan')->nullable();
             $table->timestamps();
         });

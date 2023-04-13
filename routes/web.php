@@ -19,6 +19,8 @@ use App\Http\Livewire\Public\Layanan\PublicLayananJenis;
 use App\Http\Livewire\Public\Layanan\PublicLayananJenisDetail;
 use App\Http\Livewire\Public\Pesan\PublicPesan;
 use App\Http\Livewire\Public\Pesan\PublicPesanSelectedHarga;
+use App\Http\Livewire\Public\Pesanan\PublicPembayaran;
+use App\Http\Livewire\Public\Pesanan\PublicPembayaranAkhir;
 use App\Http\Livewire\Public\Portofolio\PublicPortofolio;
 use App\Http\Livewire\Public\Portofolio\PublicPortofolioDetail;
 use App\Http\Livewire\Public\PublicBeranda;
@@ -81,6 +83,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('pesan', PublicPesan::class);
             Route::get('pesan/{layananjenis}/{layanan}', PublicPesanSelectedHarga::class);
 
+            Route::get('dashboard/pesanan/pembayaran/{id}', PublicPembayaran::class);
+            Route::get('dashboard/pesanan/pembayaran-akhir/{id}', PublicPembayaranAkhir::class);
             Route::get('dashboard', PublicDashboard::class);
             Route::get('dashboard/ubah-profil', PublicUbahProfil::class);
             Route::get('dashboard/ubah-email', PublicUbahEmail::class);
